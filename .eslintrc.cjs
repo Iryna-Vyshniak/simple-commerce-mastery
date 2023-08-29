@@ -2,24 +2,24 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'prettier', 'import'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/prop-types': 0,
-    indent: ['warn', 2],
     'import/no-absolute-path': 'off',
     quotes: ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-double'],
@@ -30,17 +30,17 @@ module.exports = {
       {
         anonymous: 'always',
         named: 'never',
-        asyncArrow: 'always'
-      }
+        asyncArrow: 'always',
+      },
     ],
     'no-unused-vars': 'warn',
     'import/order': [
       'error',
       {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
-        'newlines-between': 'always-and-inside-groups'
-      }
+        'newlines-between': 'always-and-inside-groups',
+      },
     ],
-    'multiline-ternary': 'off'
-  }
+    'multiline-ternary': 'off',
+  },
 };
