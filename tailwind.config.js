@@ -1,6 +1,10 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem'
+    },
     fontSize: {
       xs: ['12px', '16px'],
       sm: ['14px', '20px'],
