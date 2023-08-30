@@ -12,9 +12,20 @@
   scroll-behavior: smooth;
 }
 
+/* chrome */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* firefox */
+html {
+  scrollbar-width: none;
+}
+
 @layer components {
   .max-container {
     max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
   }
 
