@@ -1,7 +1,7 @@
 <svg width="506" height="505" viewBox="0 0 506 505" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="505.626" height="502.15" rx="30" fill="#C1C4DE"/>
+<rect width="505.626" height="502.15" rx="30" fill="#FFF7F5"/>
 <mask id="mask0_2_359" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="506" height="505">
-<rect width="505.626" height="504.485" rx="30" fill="#C1C4DE"/>
+<rect width="505.626" height="504.485" rx="30" fill="#FFF7F5"/>
 </mask>
 <g mask="url(#mask0_2_359)">
 <path d="M509.14 26.8594C487.59 78.4654 442.211 161.373 413.456 210.304C409.855 216.433 405.468 222.36 402.111 228.57C396.81 238.375 393.097 253.415 394.465 263.998C397.664 288.728 431.044 310.455 455.631 322.107C472.986 330.331 488.113 341.758 507.424 346.996" stroke="white" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round"/>
