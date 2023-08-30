@@ -8,9 +8,9 @@ import Footer from './Footer';
 
 const Layout = () => {
   return (
-    <div className="relative flex flex-col items-center h-screen">
+    <div className="relative flex flex-col items-center justify-center h-screen">
       <Header />
-      <main className="grow">
+      <main className="grow w-full">
         <Container>
           <Suspense fallback={<h3>Loading...</h3>}>
             <Outlet />
