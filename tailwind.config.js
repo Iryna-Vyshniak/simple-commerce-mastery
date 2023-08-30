@@ -22,7 +22,7 @@ export default {
         montserrat: ['Montserrat', 'sans-serif']
       },
       colors: {
-        primary: '#ECEEFF',
+        primary: '#FFF7F5',
         'deep-red': '#b91c1c',
         'slate-gray': '#6D6D6D',
         'pale-blue': '#F5F6FF',
