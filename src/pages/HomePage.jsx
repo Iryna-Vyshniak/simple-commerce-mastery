@@ -11,25 +11,25 @@ import {
 const HomePage = () => {
   return (
     <>
-      <section className="xl:padding-1 wide:padding-r padding-b">
+      <section id="home" className="xl:padding-1 wide:padding-r padding-b">
         <Hero />
       </section>
-      <section className="padding">
+      <section id="products" className="padding">
         <PopularProducts />
       </section>
-      <section className="padding">
+      <section id="about-us" className="padding">
         <SuperQuality />
       </section>
       <section className="padding-x py-10">
         <Services />
       </section>
-      <section className="padding bg-pale-blue">
+      <section className="padding bg-primary">
         <SpecialOffers />
       </section>
       <section className="padding">
         <CustomerReviews />
       </section>
-      <section className="padding-x sm:py-32 py-16 w-full">
+      <section id="contact-us" className="padding-x sm:py-32 py-16 w-full">
         <Subscribe />
       </section>
     </>
