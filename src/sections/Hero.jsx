@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10">
       <div className=" xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
-        <p className="text-xl font-montserrat text-deep-red">Our Summer collections</p>
+        <p className="text-xl font-montserrat text-deep-red">Our Autumn collections</p>
         <MainTitle>
           <span className="relative z-10 xl:whitespace-nowrap pr-10">Welcome to</span>
           <br />
