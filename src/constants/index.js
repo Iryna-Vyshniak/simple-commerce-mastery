@@ -1,12 +1,4 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from '../assets/icons';
-import {
-  bigShoe1,
-  bigShoe2,
-  bigShoe3,
-  thumbnailShoe1,
-  thumbnailShoe2,
-  thumbnailShoe3
-} from '../assets/images';
 
 export const navLinks = [
   { href: '#home', label: 'Home' },
@@ -60,16 +52,22 @@ export const statistics = [
 
 export const shoes = [
   {
-    thumbnail: thumbnailShoe1,
-    bigShoe: bigShoe1
+    thumbnail:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662763/nike/pngwing.com_20_gjvmyx.png',
+    bigShoe:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662763/nike/pngwing.com_20_gjvmyx.png'
   },
   {
-    thumbnail: thumbnailShoe2,
-    bigShoe: bigShoe2
+    thumbnail:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662935/nike/pngwing.com_4_bbz6ow.png',
+    bigShoe:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662935/nike/pngwing.com_4_bbz6ow.png'
   },
   {
-    thumbnail: thumbnailShoe3,
-    bigShoe: bigShoe3
+    thumbnail:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662935/nike/pngwing.com_5_zintu4.png',
+    bigShoe:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662935/nike/pngwing.com_5_zintu4.png'
   }
 ];
 
@@ -107,5 +105,32 @@ export const services = [
     imgURL: support,
     label: 'Love to help you',
     subtext: 'Our dedicated team is here to assist you every step of the way.'
+  }
+];
+
+export const products = [
+  {
+    imgURL:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662932/nike/pngwing.com_10_qauevo.png',
+    name: 'Nike Air Jordan-01',
+    price: '$200.20'
+  },
+  {
+    imgURL:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662929/nike/pngwing.com_21_i1zodu.png',
+    name: 'Nike Air Jordan-10',
+    price: '$210.20'
+  },
+  {
+    imgURL:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662929/nike/pngwing.com_22_amkcgm.png',
+    name: 'Nike Air Jordan-100',
+    price: '$220.20'
+  },
+  {
+    imgURL:
+      'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662930/nike/pngwing.com_18_tw6x31.png',
+    name: 'Nike Air Jordan-001',
+    price: '$230.20'
   }
 ];
