@@ -4,7 +4,7 @@ import Image from './Image';
 
 const PopularProductCard = ({ imgURL, name, price }) => {
   return (
-    <li className="flex flex-1 flex-col w-full max-sm:w-full">
+    <li className="flex flex-1 flex-col items-center justify-center w-full max-sm:w-full">
       <div className="flex items-center justify-center w-[282px] h-[282px]">
         <Image src={imgURL} alt={name} className="object-contain object-center" />
       </div>
