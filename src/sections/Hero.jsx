@@ -11,7 +11,7 @@ import { shoes } from '../constants';
 import ShoeCard from '../components/ShoeCard';
 
 const Hero = () => {
-  const [posterShoe, setPosterShoe] = useState(bigShoe1);
+  const [posterShoe, setPosterShoe] = useState(shoes[0].bigShoe);
 
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10">
