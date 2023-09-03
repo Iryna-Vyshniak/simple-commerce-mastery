@@ -1,10 +1,29 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from '../assets/icons';
+import {
+  Hero,
+  PopularProducts,
+  SuperQuality,
+  Services,
+  SpecialOffers,
+  CustomerReviews,
+  Subscribe
+} from '../sections';
 
 export const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#about-us', label: 'About Us' },
   { href: '#products', label: 'Products' },
   { href: '#contact-us', label: 'Contact Us' }
+];
+
+export const sectionsData = [
+  { id: 'home', className: 'xl:padding-1 wide:padding-r padding-b', component: <Hero /> },
+  { id: 'products', className: 'padding', component: <PopularProducts /> },
+  { id: 'about-us', className: 'padding', component: <SuperQuality /> },
+  { id: 'services', className: 'padding-x py-10', component: <Services /> },
+  { id: 'special-offers', className: 'padding', component: <SpecialOffers /> },
+  { id: 'customer-reviews', className: 'padding bg-primary', component: <CustomerReviews /> },
+  { id: 'contact-us', className: 'padding-x sm:py-32 py-16 w-full', component: <Subscribe /> }
 ];
 
 export const socialMedia = [
