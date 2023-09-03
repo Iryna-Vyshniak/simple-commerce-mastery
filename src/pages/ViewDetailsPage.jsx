@@ -1,5 +1,6 @@
-import Button from '../components/Button';
+import ButtonGroup from '../components/ButtonGroup';
 import Container from '../components/Container';
+import Image from '../components/Image';
 import MainTitle from '../components/MainTitle';
 import TextBlock from '../components/TextBlock';
 import Title from '../components/Title';
@@ -7,13 +8,13 @@ import Title from '../components/Title';
 const ViewDetailsPage = () => {
   return (
     <Container>
-      <article className="mt-10">
-        <div className="lg:grid lg:grid-cols-2 grid items-center justify-center gap-4 mt-10 padding">
+      <article className="-mt-10">
+        <div className="lg:grid lg:grid-cols-2 grid items-center justify-center gap-4 padding bg-primary">
           <MainTitle>
             We Provide You <span className="text-deep-red">Super Quality</span> Shoes
           </MainTitle>
-          <div className="relative flex-ato overflow-hidden">
-            <img
+          <div className="relative flex-auto overflow-hidden">
+            <Image
               src="https://res.cloudinary.com/dkqxaid79/image/upload/v1693662702/nike/pngwing.com_12_p2ou9y.png"
               alt="Sport shoes"
               className="block max-w-full h-auto  object-contain object-center"
@@ -29,7 +30,7 @@ const ViewDetailsPage = () => {
               <div className="text-sm font-medium text-slate-700 mt-2">In stock</div>
             </div>
           </div>
-          <div className="mt-4 mb-6 pb-6 border-b border-slate-200">
+          <div className="mt-4 mb-6 pb-6">
             <TextBlock
               text="Ensuring premium comfort and style, our meticulously crafted footwear is designed to
               elevate your experience, providing you with unmatched quality, innovation, and a touch
@@ -107,32 +108,7 @@ const ViewDetailsPage = () => {
               together, let`s push the boundaries of what`s possible in sports and in life."
             />
           </div>
-          <div className="flex space-x-4 mb-6 text-sm font-medium">
-            <div className="flex-auto flex space-x-4">
-              <Button type="submit" label="Buy now" className="w-[140px] h-9 text-sm" />
-              <Button
-                backgroundColor="bg-transparent"
-                textColor="text-slate-900"
-                borderColor="border-slate-200"
-                className="w-[150px] h-10 px-6 text-sm rounded-md"
-                type="button"
-                label="Add to bag"
-              />
-            </div>
-            <button
-              className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200"
-              type="button"
-              aria-label="Like"
-            >
-              <svg width="20" height="20" fill="currentColor" aria-hidden="true">
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                />
-              </svg>
-            </button>
-          </div>
+          <ButtonGroup />
           <p className="text-sm text-slate-700">Free shipping on all continental US orders.</p>
         </div>
       </article>
