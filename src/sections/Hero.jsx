@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import Container from '../components/Container';
-import { bigShoe1 } from '../assets/images';
 import { arrowRight } from '../assets/icons';
 import Button from '../components/Button';
 import MainTitle from '../components/MainTitle';
@@ -34,7 +33,7 @@ const Hero = () => {
           muted
         ></video>
       </div>
-      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center shadow-xl">
+      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-contain bg-center shadow-xl">
         <Image
           src={posterShoe}
           alt="shoe collection"
@@ -43,18 +42,18 @@ const Hero = () => {
           className="object-contain relative z-10"
         />
 
-        <div className="absolute -bottom-[5%] sm:left-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
+        <ul className="absolute -bottom-[5%] sm:left-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
           {shoes.map((image, index) => (
-            <div key={index}>
+            <li key={index}>
               <ShoeCard
                 index={index}
                 imgURL={image}
                 changeBigShoeImage={shoe => setPosterShoe(shoe)}
                 bigShoeImg={posterShoe}
               />
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </Container>
   );
