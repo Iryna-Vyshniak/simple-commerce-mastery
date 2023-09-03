@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <div className="relative flex flex-col items-center justify-center  min-h-screen">
       <Header />
-      <main className="grow w-full">
+      <main className="grow w-full mt-10">
         <Container>
           <Suspense fallback={<h3>Loading...</h3>}>
             <Outlet />

@@ -13,7 +13,7 @@ const Hero = () => {
   const [posterShoe, setPosterShoe] = useState(shoes[0].bigShoe);
 
   return (
-    <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10">
+    <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 padding-x -mt-10">
       <div className=" xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
         <p className="text-xl font-montserrat text-deep-red">Our Autumn collections</p>
         <MainTitle>
