@@ -4,7 +4,7 @@ const ButtonGroup = () => {
   return (
     <div className="flex space-x-4 mb-6 text-sm font-medium">
       <div className="flex-auto flex space-x-4">
-        <Button type="submit" label="Buy now" className="w-[140px] h-9 text-sm" />
+        <Button type="submit" label="Buy now" className="w-[140px] h-9 px-6 text-sm rounded-md" />
         <Button
           backgroundColor="bg-transparent"
           textColor="text-slate-900"
@@ -16,7 +16,7 @@ const ButtonGroup = () => {
       </div>
 
       <button
-        className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200"
+        className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200 shadow-lg active:shadow-sm transition duration-200 ease-in-out"
         type="button"
         aria-label="Like"
       >
