@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import ButtonGroup from '../components/ButtonGroup';
 import Container from '../components/Container';
 import MainTitle from '../components/MainTitle';
@@ -6,6 +8,10 @@ import ThumbImage from '../components/ThumbImage';
 import Views from '../components/Views';
 
 const ViewDetailsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0, { smooth: true });
+  }, []);
+
   return (
     <Container>
       <article className="-mt-10">
