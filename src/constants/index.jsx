@@ -186,3 +186,6 @@ export const views = [
     text: 'When you invest in Nike sport shoes, you`re not just buying a product; you`re joining a community of athletes and enthusiasts who share your passion for sports and a dedication to excellence. We take pride in being part of your journey, whether you`re a professional athlete striving for glory or someone taking their first steps towards a healthier lifestyle. At Nike, we understand that sport is more than just a physical activity; it`s a way of life. Our shoes are built to support you in every stride, jump, or sprint, helping you achieve your goals and exceed your limits. We believe in the power of sport to inspire and unite people, and we`re honored to be a part of that journey with you. In conclusion, Nike sport shoes are more than just footwear; they are a testament to our commitment to quality, innovation, sustainability, style, and diversity. With Nike on your feet, you`re not just wearing shoes; you`re wearing the symbol of a legacy that spans decades and continues to shape the future of sportswear. Join us, and together, let`s push the boundaries of what`s possible in sports and in life.'
   }
 ];
+
+export const viewsShoes =
+  'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662702/nike/pngwing.com_12_p2ou9y.png';
