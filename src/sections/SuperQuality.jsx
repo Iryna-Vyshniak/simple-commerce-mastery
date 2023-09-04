@@ -3,18 +3,14 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import Image from '../components/Image';
-
-const shoe8 =
-  'https://res.cloudinary.com/dkqxaid79/image/upload/v1693662702/nike/pngwing.com_12_p2ou9y.png';
+import { viewsShoes } from '../constants';
 
 const SuperQuality = () => {
   return (
     <Container className="flex justify-between items-center max-lg:flex-col gap-10 w-full">
       <div className="flex flex-1 flex-col">
         <h2 className="font-palanquin capitalize text-4xl lg:max-w-lg font-bold">
-          We Provide You
-          <span className="text-coral-red"> Super </span>
-          <span className="text-coral-red">Quality </span> Shoes
+          We Provide You Super Quality Shoes
         </h2>
         <p className="mt-4 lg:max-w-lg info-text">
           Ensuring premium comfort and style, our meticulously crafted footwear is designed to
@@ -30,7 +26,7 @@ const SuperQuality = () => {
       </div>
 
       <div className="flex-1 flex justify-center items-center">
-        <Image src={shoe8} alt="product detail" width={570} height={522} />
+        <Image src={viewsShoes} alt="product detail" width={570} height={522} />
       </div>
     </Container>
   );

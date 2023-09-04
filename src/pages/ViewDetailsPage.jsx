@@ -6,6 +6,7 @@ import MainTitle from '../components/MainTitle';
 import Price from '../components/Price';
 import ThumbImage from '../components/ThumbImage';
 import Views from '../components/Views';
+import { viewsShoes } from '../constants';
 
 const ViewDetailsPage = () => {
   useEffect(() => {
@@ -19,10 +20,7 @@ const ViewDetailsPage = () => {
           <MainTitle>
             We Provide You <span className="text-deep-red">Super Quality</span> Shoes
           </MainTitle>
-          <ThumbImage
-            src="https://res.cloudinary.com/dkqxaid79/image/upload/v1693662702/nike/pngwing.com_12_p2ou9y.png"
-            alt="Sport shoes"
-          />
+          <ThumbImage src={viewsShoes} alt="Sport shoes" />
         </div>
 
         <div className="padding">
