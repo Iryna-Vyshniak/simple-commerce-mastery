@@ -1,4 +1,5 @@
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     container: {
@@ -19,7 +20,9 @@ export default {
     extend: {
       fontFamily: {
         palanquin: ['Palanquin', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif']
+        montserrat: ['Montserrat', 'sans-serif'],
+        sport: ['Octin Sports', 'sans-serif'],
+        hero: ['Ethnocentric', 'sans-serif']
       },
       colors: {
         primary: '#FFF7F5',
@@ -37,8 +40,9 @@ export default {
       },
       screens: {
         wide: '1440px'
-      }
+      },
+      scrollbar: ['rounded']
     }
   },
-  plugins: []
+  plugins: [require('tailwind-scrollbar')]
 };
