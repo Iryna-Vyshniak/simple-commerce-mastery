@@ -11,7 +11,7 @@
 }
 
 :root.dark {
-  --accent-color-bg-color: #0d1529;
+  --accent-color-bg-color: linear-gradient(90deg, #64748b 0%, #020617 100%);
   --accent-color-text-color: #ffffff;
 }
 
@@ -48,7 +48,7 @@ html {
 body {
   margin: 0;
 
-  background-color: var(--accent-color-bg-color);
+  background: var(--accent-color-bg-color);
   color: var(--accent-color-text-color);
 
   font-family: 'Montserrat', sans-serif;
@@ -68,7 +68,7 @@ body {
   }
 
   .input {
-    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray bg-transparent pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
   }
 }
 
@@ -102,6 +102,10 @@ body {
   }
 
   .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
+    @apply font-montserrat text-slate-gray text-lg leading-7 dark:text-slate-300;
+  }
+
+  .fills {
+    @apply fill-primary dark:fill-slate-600;
   }
 }
