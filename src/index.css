@@ -105,7 +105,11 @@ body {
     @apply font-montserrat text-slate-gray text-lg leading-7 dark:text-slate-300;
   }
 
-  .fills {
-    @apply fill-primary dark:fill-slate-600;
+  .mobile-navbar-menu {
+    @apply absolute top-3 right-2 w-[24px] h-[24px] fill-slate-950 hover:fill-deep-red dark:hover:fill-deep-red focus:fill-deep-red dark:focus:fill-deep-red dark:fill-white cursor-pointer transition duration-200 ease-in-out;
+  }
+
+  .mobile-navbar-close {
+    @apply absolute top-3 right-2 w-[24px] h-[24px] stroke-slate-950 hover:stroke-deep-red focus:stroke-deep-red dark:stroke-white cursor-pointer transition duration-200 ease-in-out;
   }
 }
