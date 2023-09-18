@@ -1,6 +1,13 @@
+import icons from '../assets/icons/icons.svg';
+
 const Button = ({
+  id,
+  type,
   label,
   iconURL,
+  svgURL,
+  svgClass,
+  ariaLabel,
   backgroundColor,
   textColor,
   borderColor,
@@ -9,6 +16,8 @@ const Button = ({
 }) => {
   return (
     <button
+      data-id={id}
+      type={type}
       className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none 
       ${
         backgroundColor
@@ -22,6 +31,12 @@ const Button = ({
 
       {iconURL && (
         <img src={iconURL} alt="arrow right icon" className="ml-2 rounded-full bg-white w-5 h-5" />
+      )}
+
+      {svgURL && (
+        <svg width="18" height="18" aria-label={ariaLabel} className={svgClass}>
+          <use href={icons + svgURL} />
+        </svg>
       )}
     </button>
   );
