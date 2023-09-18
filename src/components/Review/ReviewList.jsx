@@ -1,4 +1,4 @@
-import { reviews } from '../../constants';
+import { reviews } from '../../shared/constants';
 
 import ReviewCard from './ReviewCard';
 

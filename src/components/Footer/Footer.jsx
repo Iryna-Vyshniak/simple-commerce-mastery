@@ -8,7 +8,7 @@ import SocialMedia from './SocialMedia';
 
 const Footer = () => {
   return (
-    <footer className="max-container padding-x padding-t pb-8 bg-red-950">
+    <footer className="max-container padding-x padding-t pb-8 bg-red-950 dark:bg-slate-950">
       <Container>
         <div className="flex justify-between items-start gap-20 flex-wrap max-lg:flex-col">
           <div className="flex flex-col items-start">

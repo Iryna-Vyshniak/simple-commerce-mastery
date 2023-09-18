@@ -1,4 +1,4 @@
-import { views } from '../constants';
+import { views } from '../shared/constants';
 
 import TextBlock from './TextBlock';
 import Title from './Title';

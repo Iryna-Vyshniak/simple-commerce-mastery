@@ -1,6 +1,6 @@
 import Container from '../components/Container';
 import ServiceCard from '../components/ServiceCard';
-import { services } from '../constants';
+import { services } from '../shared/constants';
 
 const Services = () => {
   return (

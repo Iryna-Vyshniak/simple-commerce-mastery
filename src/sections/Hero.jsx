@@ -6,8 +6,9 @@ import Button from '../components/Button';
 import MainTitle from '../components/MainTitle';
 import Statistics from '../components/Statistics';
 import Image from '../components/Image';
-import { shoes } from '../constants';
+
 import ShoeCard from '../components/ShoeCard';
+import { shoes } from '../shared/constants';
 
 const Hero = () => {
   const [posterShoe, setPosterShoe] = useState(shoes[0].bigShoe);
@@ -21,7 +22,7 @@ const Hero = () => {
           <br />
           <span className="text-deep-red inline-block mt-3">NIKE,</span> inc.
         </MainTitle>
-        <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
+        <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm dark:text-slate-300">
           Discover stylish Nike arrivals, quality comfort, and innovation for your active life.
         </p>
         <Button label="Shop now" iconURL={arrowRight} />
@@ -33,13 +34,13 @@ const Hero = () => {
           muted
         ></video>
       </div>
-      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-contain bg-center shadow-xl">
+      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary dark:bg-slate-400 bg-hero bg-cover bg-center shadow-xl">
         <Image
           src={posterShoe}
           alt="shoe collection"
           width={610}
           height={502}
-          className="object-contain relative z-10"
+          className="object-contain relative z-10 -rotate-[30deg] hover:rotate-0 transition duration-300 ease-in-out"
         />
 
         <ul className="absolute -bottom-[5%] sm:left-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
