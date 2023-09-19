@@ -1,35 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { useSearchParams } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import Container from '../components/Container';
 import PopularProductCard from '../components/PopularProductCard';
-import { getAllProducts } from '../shared/services/api-products';
+
 import Title from '../components/Title';
+import { selectError, selectIsLoading, selectProducts } from '../redux/products/products-selectors';
+import { getAllShoes } from '../redux/products/products-operations';
 
 const PopularProducts = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setIsError] = useState(null);
-  const [products, setProducts] = useState([]);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
 
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
   const page = Number(searchParams.get('page') || 1);
 
   useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-        setIsError(null);
-
-        const { products } = await getAllProducts(page);
-        setProducts(products);
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, [page]);
+    dispatch(getAllShoes(page));
+  }, [dispatch, page]);
 
   if (!products) {
     return <p>...Loading</p>;
