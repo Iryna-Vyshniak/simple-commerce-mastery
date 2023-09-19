@@ -43,7 +43,7 @@ const Cart = () => {
       }`}
     >
       <div
-        className={`absolute right-0 z-[150] h-screen max-w-xl w-full blur-cart duration-500  ${
+        className={`absolute right-0 z-[150] flex flex-col items-center justify-center h-screen max-w-xl w-full blur-cart duration-500  ${
           isOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-8'
         }`}
       >
@@ -51,8 +51,8 @@ const Cart = () => {
         {cartProducts?.length === 0 ? (
           <CartEmpty onCartToggle={onCartToggle} />
         ) : (
-          <div className="overflow-hidden overflow-y-auto overflow-x-hidden h-[76vh] scroll-style py-7">
-            <div className="flex items-start justify-start flex-col gap-y-7 h-[81vh] py-3">
+          <div className="flex-1 overflow-hidden overflow-y-auto overflow-x-hidden h-full w-full scroll-style pb-24">
+            <div className="flex items-start justify-start flex-col gap-y-7">
               {cartProducts?.map(item => (
                 <CartItem key={item._id} item={item} />
               ))}

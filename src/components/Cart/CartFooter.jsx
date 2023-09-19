@@ -5,8 +5,8 @@ import { selectTotalAmount } from '../../redux/cart/cart-selectors';
 const CartFooter = () => {
   const totalAmount = useSelector(selectTotalAmount);
   return (
-    <div className="fixed bottom-0 bg-white/80 w-full px-5 py-2 grid items-center shadow-[-10px_-10px_15px_-3px_rgb(0,0,0,0.1)]">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col items-center gap-2 bg-white/80 w-full px-5 py-2 shadow-[-10px_-10px_15px_-3px_rgb(0,0,0,0.1)]">
+      <div className="flex items-center justify-between w-full">
         <h3 className="text-base font-semibold uppercase dark:text-slate-600">Total price</h3>
         <h3 className="text-sm rounded bg-cart text-slate-100 px-1 py-0.5">
           {totalAmount.toFixed(2)}

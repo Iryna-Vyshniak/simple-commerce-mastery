@@ -26,7 +26,7 @@ const CartItem = ({ item }) => {
   const { imgURL, name, price, cartQuantity } = item;
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between w-full p-5 shadow-md">
+    <section className="flex flex-col md:flex-row items-center justify-between w-full px-2 py-4 shadow-md md:shadow-sm  bg-gradient-to-b from-white to-white/5">
       <div className="flex flex-col md:flex-row items-center gap-5">
         <div className="relative grid items-center shadow-xl bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 bg-primary dark:bg-slate-500 rounded p-3 hover:scale-105 transition duration-200 ease-in-out">
           <ThumbImage

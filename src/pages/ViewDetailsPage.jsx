@@ -27,7 +27,7 @@ const ViewDetailsPage = () => {
           <div className="flex flex-wrap w-full">
             <div className="flex items-center justify-between w-full">
               <Price
-                amount="$110.00"
+                amount="149.90"
                 className="text-lg font-semibold text-slate-500 dark:text-slate-400"
               />
               <p className="text-sm font-medium text-slate-700 dark:text-slate-400 mt-2">
