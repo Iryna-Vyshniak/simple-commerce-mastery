@@ -45,6 +45,21 @@ html {
   scrollbar-width: none;
 }
 
+/* The thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 4, 4);
+}
+
+.scroll-style::-webkit-scrollbar {
+  @apply w-2 scroll-smooth rounded-3xl bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-300 shadow-inner;
+}
+.scroll-style::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+.scroll-style::-webkit-scrollbar-thumb {
+  @apply w-2 scroll-smooth rounded-3xl bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-300 shadow-inner;
+}
+
 body {
   margin: 0;
 
@@ -111,5 +126,15 @@ body {
 
   .mobile-navbar-close {
     @apply absolute top-3 right-2 w-[24px] h-[24px] stroke-slate-950 hover:stroke-deep-red focus:stroke-deep-red dark:stroke-white cursor-pointer transition duration-200 ease-in-out;
+  }
+  .btn-cart {
+    @apply w-[20px] h-[20px] fill-slate-600 hover:fill-deep-red focus:fill-deep-red dark:fill-white cursor-pointer transition duration-200 ease-in-out;
+  }
+
+  .blur-cart {
+    @apply bg-white/50 bg-clip-padding  backdrop-blur-sm bg-opacity-70 opacity-100 z-[100] shadow-lg shadow-slate-100 transition duration-200 ease-in-out;
+  }
+  .bg-cart {
+    @apply bg-deep-red shadow-lg hover:bg-red-600 focus:bg-red-600 transition duration-200 ease-in-out;
   }
 }
