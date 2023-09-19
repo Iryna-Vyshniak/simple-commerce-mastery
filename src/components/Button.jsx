@@ -12,20 +12,25 @@ const Button = ({
   textColor,
   borderColor,
   fullWidth,
-  className
+  className,
+  onClick
 }) => {
   return (
     <button
       data-id={id}
       type={type}
-      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none 
-      ${
+      onClick={onClick}
+      className={`${
+        className
+          ? className
+          : 'flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none'
+      } ${
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
-          : 'bg-deep-red text-white border-deep-red'
+          : 'bg-deep-red hover:bg-red-600 focus:bg-red-600 text-white border-deep-red'
       } rounded-full ${
-        fullWidth && 'w-full'
-      } ${className} shadow-lg active:shadow-sm transition duration-200 ease-in-out`}
+        fullWidth ? 'w-full' : ''
+      } shadow-lg active:shadow-sm focus:shadow-sm transition duration-200 ease-in-out`}
     >
       {label}
 

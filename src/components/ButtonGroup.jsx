@@ -4,12 +4,16 @@ const ButtonGroup = () => {
   return (
     <div className="flex space-x-4 mb-6 text-sm font-medium">
       <div className="flex-auto flex space-x-4">
-        <Button type="submit" label="Buy now" className="w-[140px] h-9 px-6 text-sm rounded-md" />
+        <Button
+          type="submit"
+          label="Buy now"
+          className="w-[140px] h-9 px-6 text-sm rounded-md shadow-lg active:shadow-sm focus:shadow-sm transition duration-200 ease-in-out"
+        />
         <Button
           backgroundColor="bg-transparent"
           textColor="text-slate-900"
           borderColor="border-slate-200"
-          className="w-[150px] h-10 px-6 text-sm rounded-md"
+          className="w-[150px] h-10 px-6 text-sm rounded-md flex justify-center items-center gap-2  py-4 border font-montserrat leading-none"
           type="button"
           label="Add to bag"
         />
