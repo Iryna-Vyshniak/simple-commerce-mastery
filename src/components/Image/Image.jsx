@@ -6,7 +6,7 @@ const Image = ({ src, alt, link, className }) => {
       <img src={src} alt={alt} className={`${className} transition duration-200 ease-in-out`} />
     </Link>
   ) : (
-    <img src={src} alt={alt} className={className} />
+    <img src={src} alt={alt} className={`${className} transition duration-200 ease-in-out`} />
   );
   return <>{Img}</>;
 };
