@@ -132,7 +132,7 @@ body {
   }
 
   .blur-cart {
-    @apply bg-white/50 bg-clip-padding  backdrop-blur-sm bg-opacity-70 opacity-100 z-[100] shadow-lg shadow-slate-100 transition duration-200 ease-in-out;
+    @apply bg-white/80 bg-clip-padding  backdrop-blur-sm bg-opacity-70 opacity-100 z-[100] shadow-lg shadow-slate-100 transition duration-200 ease-in-out;
   }
   .bg-cart {
     @apply bg-deep-red shadow-lg hover:bg-red-600 focus:bg-red-600 transition duration-200 ease-in-out;
