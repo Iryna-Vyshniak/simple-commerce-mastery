@@ -2,9 +2,8 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { navLinks } from '../shared/constants';
-
-import Switcher from './Switcher';
+import { navLinks } from '../../shared/data';
+import Switcher from '../Switcher';
 
 const NavMenu = () => {
   const [activeLink, setActiveLink] = useState('');

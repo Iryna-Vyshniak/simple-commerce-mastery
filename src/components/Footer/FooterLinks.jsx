@@ -1,4 +1,4 @@
-import { footerLinks } from '../../shared/constants';
+import { footerLinks } from '../../shared/data';
 
 const FooterLinks = () => {
   return (

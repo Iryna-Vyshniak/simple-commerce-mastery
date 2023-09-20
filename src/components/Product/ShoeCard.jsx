@@ -1,4 +1,4 @@
-import Image from './Image';
+import Image from '../Image/Image';
 
 const ShoeCard = ({ imgURL, changeBigShoeImage, bigShoeImg }) => {
   const handleClick = () => {

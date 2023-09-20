@@ -1,14 +1,28 @@
 import { useEffect } from 'react';
 
-import ButtonGroup from '../components/ButtonGroup';
+import { useDispatch, useSelector } from 'react-redux';
+
+import ButtonGroup from '../components/Button/ButtonGroup';
 import Container from '../components/Container';
-import MainTitle from '../components/MainTitle';
+import MainTitle from '../components/Title/MainTitle';
 import Price from '../components/Price';
-import ThumbImage from '../components/ThumbImage';
+import ThumbImage from '../components/Image/ThumbImage';
 import Views from '../components/Views';
-import { viewsShoes } from '../shared/constants';
+import { selectProducts } from '../redux/products/products-selectors';
+import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
 
 const ViewDetailsPage = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
+  const viewsShoes = products.find(product => product.name === 'Nike Air Force 1 ’07');
+
+  const addProductToCart = () => dispatch(addToCart(viewsShoes));
+
+  const handleBuyProduct = () => {
+    dispatch(addToCart(viewsShoes));
+    dispatch(setOpenCart(true));
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0, { smooth: true });
   }, []);
@@ -20,23 +34,26 @@ const ViewDetailsPage = () => {
           <MainTitle className="text-5xl">
             We Provide You <span className="text-deep-red">Super Quality</span> Shoes
           </MainTitle>
-          <ThumbImage src={viewsShoes} alt="Sport shoes" />
+          <ThumbImage src={viewsShoes.imgURL} alt="Sport shoes" />
         </div>
 
         <div className="padding">
           <div className="flex flex-wrap w-full">
             <div className="flex items-center justify-between w-full">
               <Price
-                amount="149.90"
+                amount={viewsShoes.price}
                 className="text-lg font-semibold text-slate-500 dark:text-slate-400"
               />
-              <p className="text-sm font-medium text-slate-700 dark:text-slate-400 mt-2">
+              <p className="text-lg font-semibold text-slate-500 dark:text-slate-400 mt-2">
                 In stock
               </p>
             </div>
           </div>
+          <p className="mt-4 mb-6 pb-6 font-medium text-slate-700 dark:text-slate-400">
+            {viewsShoes.description}
+          </p>
           <Views />
-          <ButtonGroup />
+          <ButtonGroup addProductToCart={addProductToCart} handleBuyProduct={handleBuyProduct} />
           <p className="text-sm text-slate-700 dark:text-slate-400">
             Free shipping on all continental US orders.
           </p>

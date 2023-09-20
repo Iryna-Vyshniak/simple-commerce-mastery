@@ -1,5 +1,5 @@
 import ScrollToAnchor from '../components/ScrollToAnchor';
-import { sectionsData } from '../shared/constants';
+import { sectionsData } from '../shared/data';
 
 const HomePage = () => {
   return (

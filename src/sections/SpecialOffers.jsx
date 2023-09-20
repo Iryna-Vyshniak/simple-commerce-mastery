@@ -1,8 +1,8 @@
 import { arrowRight } from '../assets/icons';
 import { offer } from '../assets/images';
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import Container from '../components/Container';
-import Title from '../components/Title';
+import Title from '../components/Title/Title';
 import { offers } from '../shared/constants';
 
 const SpecialOffers = () => {

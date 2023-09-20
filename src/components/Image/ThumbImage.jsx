@@ -9,7 +9,7 @@ const ThumbImage = ({ src, alt, className }) => {
         className={
           className
             ? `block object-contain object-center ${className}`
-            : 'block max-w-full h-auto  object-contain object-center'
+            : 'block max-w-full h-auto object-contain object-center'
         }
         loading="lazy"
       />

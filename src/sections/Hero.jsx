@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import Container from '../components/Container';
 import { arrowRight } from '../assets/icons';
-import Button from '../components/Button';
-import MainTitle from '../components/MainTitle';
+import Button from '../components/Button/Button';
+import MainTitle from '../components/Title/MainTitle';
 import Statistics from '../components/Statistics';
-import Image from '../components/Image';
+import Image from '../components/Image/Image';
 
-import ShoeCard from '../components/ShoeCard';
+import ShoeCard from '../components/Product/ShoeCard';
 import { shoes } from '../shared/constants';
 
 const Hero = () => {
@@ -29,6 +29,7 @@ const Hero = () => {
         <Statistics />
         <video
           src="https://res.cloudinary.com/dkqxaid79/video/upload/v1693431501/nike/pexels-anna-shvets-5469607_1080p_jiplnu.mp4"
+          // src="https://static.nike.com/a/videos/q_90/c0b4d254-27d4-4013-ab26-673c9584fd01/video.mp4"
           autoPlay={true}
           loop={true}
           muted

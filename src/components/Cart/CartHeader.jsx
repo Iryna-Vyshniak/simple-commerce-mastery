@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 
-import Button from '../Button';
+import Button from '../Button/Button';
 import { selectTotalQuantity } from '../../redux/cart/cart-selectors';
 
 const CartHeader = ({ onCartToggle, onClearCartItems }) => {
   const totalQuantity = useSelector(selectTotalQuantity);
 
   return (
-    <div className="sticky top-0 left-0 right-0 flex items-center justify-between py-3 px-2 h-15 w-full bg-white/50 shadow-lg">
+    <div className="sticky top-0 left-0 right-0 flex items-center justify-between py-3 px-2 h-15 w-full bg-white/80 shadow-lg">
       <div className="flex items-center gap-3">
         <Button
           type="button"
@@ -21,7 +21,7 @@ const CartHeader = ({ onCartToggle, onClearCartItems }) => {
         <div className="grid items-center">
           <h2 className="text-base font-medium text-slate-900">
             Your Cart:
-            <span className="bg-cart w-9 h-9 rounded-[50%] ml-2 p-1  text-white font-normal text-[12px]">
+            <span className="inline-block w-9 h-9 rounded-full ml-2 p-2 text-white bg-slate-300 font-normal text-[12px] text-center">
               {totalQuantity}
             </span>
           </h2>

@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { headerLogo } from '../assets/images';
+import { useToggle } from '../../shared/hooks';
+import { headerLogo } from '../../assets/images';
+import Button from '../Button/Button';
 
-import { useToggle } from '../shared/hooks';
-
-import NavMenu from './NavMenu';
 import MobNavMenu from './MobNavMenu';
-import Button from './Button';
+import NavMenu from './NavMenu';
 
 const Nav = () => {
   const { isOpen, close, toggle } = useToggle(false);

@@ -1,6 +1,6 @@
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import Container from '../components/Container';
-import Title from '../components/Title';
+import Title from '../components/Title/Title';
 
 const Subscribe = () => {
   return (

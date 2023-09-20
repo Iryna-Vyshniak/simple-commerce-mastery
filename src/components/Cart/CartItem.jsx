@@ -5,9 +5,9 @@ import {
   setDecrementProduct,
   setIncrementProduct
 } from '../../redux/cart/cart-slice';
-import Button from '../Button';
-import Title from '../Title';
-import ThumbImage from '../ThumbImage';
+import Button from '../Button/Button';
+import Title from '../Title/Title';
+import ThumbImage from '../Image/ThumbImage';
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -28,13 +28,13 @@ const CartItem = ({ item }) => {
   return (
     <section className="flex flex-col md:flex-row items-center justify-between w-full px-2 py-4 shadow-md md:shadow-sm  bg-gradient-to-b from-white to-white/5">
       <div className="flex flex-col md:flex-row items-center gap-5">
-        <div className="relative grid items-center shadow-xl bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 bg-primary dark:bg-slate-500 rounded p-3 hover:scale-105 transition duration-200 ease-in-out">
+        <div className="relative grid items-center shadow-xl bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 bg-primary dark:bg-slate-300 rounded p-3 hover:scale-105 transition duration-200 ease-in-out">
           <ThumbImage
             src={imgURL}
             alt="sport shoes Nike"
             className="flex items-center justify-center w-[120px] h-[100px]"
           />
-          <div className="absolute right-1 top-1 bg:-primary dark:bg-slate-400 text-black text-xs px-1 rounded-md shadow-md">
+          <div className="absolute right-1 top-1 bg:-primary dark:bg-slate-300 text-black text-xs px-1 rounded-md shadow-md">
             ${price}
           </div>
         </div>

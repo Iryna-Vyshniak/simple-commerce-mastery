@@ -1,7 +1,7 @@
-import { views } from '../shared/constants';
+import { views } from '../shared/data';
 
 import TextBlock from './TextBlock';
-import Title from './Title';
+import Title from './Title/Title';
 
 const Views = () => {
   return (

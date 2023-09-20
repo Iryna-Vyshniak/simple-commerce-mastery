@@ -1,4 +1,4 @@
-import Image from '../Image';
+import Image from '../Image/Image';
 import { star } from '../../assets/icons';
 
 const ReviewCard = ({ avatarURL, name, rating, feedback }) => {

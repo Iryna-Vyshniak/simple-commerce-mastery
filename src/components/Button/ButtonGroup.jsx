@@ -1,15 +1,17 @@
 import Button from './Button';
 
-const ButtonGroup = () => {
+const ButtonGroup = ({ addProductToCart, handleBuyProduct }) => {
   return (
     <div className="flex space-x-4 mb-6 text-sm font-medium">
       <div className="flex-auto flex space-x-4">
         <Button
+          onClick={handleBuyProduct}
           type="submit"
           label="Buy now"
           className="w-[140px] h-9 px-6 text-sm rounded-md shadow-lg active:shadow-sm focus:shadow-sm transition duration-200 ease-in-out"
         />
         <Button
+          onClick={addProductToCart}
           backgroundColor="bg-transparent"
           textColor="text-slate-900"
           borderColor="border-slate-200"

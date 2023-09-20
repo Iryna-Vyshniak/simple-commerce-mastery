@@ -1,5 +1,5 @@
-import { socialMedia } from '../../shared/constants';
-import Image from '../Image';
+import { socialMedia } from '../../shared/data';
+import Image from '../Image/Image';
 
 const SocialMedia = () => {
   return (

@@ -1,14 +1,15 @@
 import { useDispatch } from 'react-redux';
+import { ReactFitty } from 'react-fitty';
 
-import { star } from '../assets/icons';
+import { star } from '../../assets/icons';
 
-import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
+import { addToCart, setOpenCart } from '../../redux/cart/cart-slice';
 
-import Button from './Button';
+import Button from '../Button/Button';
 
-import Image from './Image';
-import Price from './Price';
-import ThumbImage from './ThumbImage';
+import Image from '../Image/Image';
+import Price from '../Price';
+import ThumbImage from '../Image/ThumbImage';
 
 const PopularProductCard = ({ _id, imgURL, name, price }) => {
   const item = { _id, imgURL, name, price };
@@ -33,7 +34,9 @@ const PopularProductCard = ({ _id, imgURL, name, price }) => {
         <Image src={star} alt="rating icon" width={24} height={24} />
         <p className="font-montserrat text-xl leading-normal text-slate-gray">(4.5)</p>
       </div>
-      <h3 className="mt-2 text-2xl leading-normal font-semibold font-palanquin">{name}</h3>
+      <h3 className="mt-2 text-2xl leading-normal font-semibold font-palanquin">
+        <ReactFitty>{name}</ReactFitty>
+      </h3>
       <div className="flex-auto flex flex-col sm:flex-row items-center justify-between gap-2 w-full">
         <Button
           onClick={addProductToCart}

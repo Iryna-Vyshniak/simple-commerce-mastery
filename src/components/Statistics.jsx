@@ -1,4 +1,4 @@
-import { statistics } from '../shared/constants';
+import { statistics } from '../shared/data';
 
 const Statistics = () => {
   return (

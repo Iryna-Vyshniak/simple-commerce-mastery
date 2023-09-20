@@ -1,4 +1,4 @@
-import Image from './Image';
+import Image from './Image/Image';
 
 const ServiceCard = ({ imgURL, label, subtext }) => {
   return (

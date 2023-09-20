@@ -1,7 +1,7 @@
 import { copyrightSign } from '../../assets/icons';
 import { footerLogo } from '../../assets/images';
 import Container from '../Container';
-import Image from '../Image';
+import Image from '../Image/Image';
 
 import FooterLinks from './FooterLinks';
 import SocialMedia from './SocialMedia';

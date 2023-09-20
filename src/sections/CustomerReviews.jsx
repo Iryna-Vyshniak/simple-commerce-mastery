@@ -1,6 +1,6 @@
 import Container from '../components/Container';
 import ReviewList from '../components/Review/ReviewList';
-import Title from '../components/Title';
+import Title from '../components/Title/Title';
 
 const CustomerReviews = () => {
   return (

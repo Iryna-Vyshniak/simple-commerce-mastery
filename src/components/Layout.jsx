@@ -3,9 +3,10 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Container from './Container';
-import Header from './Header';
+
 import Footer from './Footer/Footer';
 import Cart from './Cart/Cart';
+import Header from './Header/Header';
 
 const Layout = () => {
   return (

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { navLinks } from '../shared/constants';
+import { navLinks } from '../../shared/data';
 
 const MobNavMenu = ({ onClose }) => {
   const [activeLink, setActiveLink] = useState('');

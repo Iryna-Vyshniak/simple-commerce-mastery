@@ -1,5 +1,5 @@
 import { emptybag } from '../../assets/images';
-import Button from '../Button';
+import Button from '../Button/Button';
 
 const CartEmpty = ({ onCartToggle }) => {
   return (

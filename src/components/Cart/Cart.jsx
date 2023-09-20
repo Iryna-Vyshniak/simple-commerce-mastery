@@ -51,7 +51,7 @@ const Cart = () => {
         {cartProducts?.length === 0 ? (
           <CartEmpty onCartToggle={onCartToggle} />
         ) : (
-          <div className="flex-1 overflow-hidden overflow-y-auto overflow-x-hidden h-full w-full scroll-style pb-24">
+          <div className="flex-1 overflow-hidden overflow-y-auto overflow-x-hidden h-full w-full scroll-style pb-24 bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 bg-primary dark:bg-slate-200">
             <div className="flex items-start justify-start flex-col gap-y-7">
               {cartProducts?.map(item => (
                 <CartItem key={item._id} item={item} />

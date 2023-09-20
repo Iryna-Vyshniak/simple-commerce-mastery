@@ -1,4 +1,4 @@
-import icons from '../assets/icons/icons.svg';
+import icons from '../../assets/icons/icons.svg';
 
 const Button = ({
   id,

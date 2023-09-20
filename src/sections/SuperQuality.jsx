@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import Container from '../components/Container';
-import Image from '../components/Image';
+import Image from '../components/Image/Image';
 import { viewsShoes } from '../shared/constants';
-import Title from '../components/Title';
+import Title from '../components/Title/Title';
 
 const SuperQuality = () => {
   return (

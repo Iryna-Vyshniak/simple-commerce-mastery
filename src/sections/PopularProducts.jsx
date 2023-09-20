@@ -5,11 +5,11 @@ import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Container from '../components/Container';
-import PopularProductCard from '../components/PopularProductCard';
 
-import Title from '../components/Title';
+import Title from '../components/Title/Title';
 import { selectError, selectIsLoading, selectProducts } from '../redux/products/products-selectors';
 import { getAllShoes } from '../redux/products/products-operations';
+import Slider from '../components/Slider/Slider';
 
 const PopularProducts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -41,13 +41,7 @@ const PopularProducts = () => {
           of comfort, design, and value
         </p>
       </div>
-      {!error && products.length > 0 && (
-        <ul className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 sm:gap-6 gap-14 justify-center items-center mt-16">
-          {products.map(product => (
-            <PopularProductCard key={product._id} {...product} />
-          ))}
-        </ul>
-      )}
+      <Slider />
     </Container>
   );
 };
