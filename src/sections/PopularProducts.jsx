@@ -41,7 +41,7 @@ const PopularProducts = () => {
           of comfort, design, and value
         </p>
       </div>
-      <Slider />
+      <Slider products={products} />
     </Container>
   );
 };

@@ -1,17 +1,20 @@
 import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+
 import Container from '../components/Container';
 import { arrowRight } from '../assets/icons';
 import Button from '../components/Button/Button';
 import MainTitle from '../components/Title/MainTitle';
 import Statistics from '../components/Statistics';
 import Image from '../components/Image/Image';
-
-import ShoeCard from '../components/Product/ShoeCard';
-import { shoes } from '../shared/constants';
+import { selectProducts } from '../redux/products/products-selectors';
+import Slider from '../components/Slider/Slider';
 
 const Hero = () => {
-  const [posterShoe, setPosterShoe] = useState(shoes[0].bigShoe);
+  const products = useSelector(selectProducts);
+
+  const [posterShoe, setPosterShoe] = useState(products[0].popular.bigShoe);
 
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 padding-x -mt-10">
@@ -39,23 +42,12 @@ const Hero = () => {
         <Image
           src={posterShoe}
           alt="shoe collection"
-          width={610}
-          height={502}
-          className="object-contain relative z-10 -rotate-[30deg] hover:rotate-0 transition duration-300 ease-in-out"
+          width={710}
+          className="object-cover relative z-10 -rotate-[30deg] hover:rotate-0 transition duration-300 ease-in-out"
         />
-
-        <ul className="absolute -bottom-[5%] sm:left-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
-          {shoes.map((image, index) => (
-            <li key={index}>
-              <ShoeCard
-                index={index}
-                imgURL={image}
-                changeBigShoeImage={shoe => setPosterShoe(shoe)}
-                bigShoeImg={posterShoe}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className="absolute -bottom-[5%] sm:right-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
+          <Slider shoes={products} posterShoe={posterShoe} setPosterShoe={setPosterShoe} />
+        </div>
       </div>
     </Container>
   );
