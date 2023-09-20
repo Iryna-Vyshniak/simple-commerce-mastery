@@ -5,7 +5,7 @@ export const getAllProducts = async page => {
     const response = await instance.get('/products', {
       params: {
         page,
-        limit: 4
+        limit: 10
       }
     });
     return response.data;
