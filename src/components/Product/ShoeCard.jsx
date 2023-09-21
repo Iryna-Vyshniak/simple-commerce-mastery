@@ -8,7 +8,7 @@ const ShoeCard = ({ imgURL, changeBigShoeImage, bigShoeImg }) => {
   };
 
   return (
-    <div
+    <li
       className={`border-2 rounded-xl ${
         bigShoeImg === imgURL.bigShoe ? 'border-deep-red shadow-lg' : 'border-white'
       } cursor-pointer max-sm:flex-1 shadow-xl transition duration-200 ease-in-out`}
@@ -23,7 +23,7 @@ const ShoeCard = ({ imgURL, changeBigShoeImage, bigShoeImg }) => {
           className="object-cover object-center"
         />
       </div>
-    </div>
+    </li>
   );
 };
 
