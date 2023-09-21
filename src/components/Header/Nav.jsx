@@ -1,14 +1,28 @@
 import { Link } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useToggle } from '../../shared/hooks';
 import { headerLogo } from '../../assets/images';
 import Button from '../Button/Button';
+
+import { selectTotalQuantity } from '../../redux/cart/cart-selectors';
+
+import { setOpenCart } from '../../redux/cart/cart-slice';
+
+import Switcher from '../Switcher';
 
 import MobNavMenu from './MobNavMenu';
 import NavMenu from './NavMenu';
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const totalQuantity = useSelector(selectTotalQuantity);
   const { isOpen, close, toggle } = useToggle(false);
+
+  const onCartToggle = () => {
+    dispatch(setOpenCart(true));
+  };
 
   return (
     <nav className="relative flex flex-wrap justify-between items-center max-container px-2">
@@ -24,31 +38,34 @@ const Nav = () => {
         />
       </Link>
       <NavMenu />
-      <div
-        onClick={toggle}
-        className={`${
-          isOpen
-            ? 'max-lg:fixed top-8 right-10 z-40 max-lg:block cursor-pointer'
-            : 'relative z-40 hidden max-lg:block cursor-pointer'
-        }`}
-      >
-        {isOpen ? (
+      <div className="flex items-center justify-center gap-3 ml-auto">
+        <Switcher />
+        <div className="relative">
           <Button
-            svgClass="mobile-navbar-close"
-            svgURL="#icon-close"
-            ariaLabel="close"
-            backgroundColor="bg-transparent shadow-none"
-            borderColor="border-none"
+            onClick={onCartToggle}
+            svgClass="fill-slate-400 hover:fill-deep-red focus:fill-deep-red dark:stroke-white transition duration-200 ease-in-out"
+            svgURL="#icon-shopping-bag"
+            ariaLabel="cart"
+            backgroundColor="bg-transparent"
+            className="h-8 px-2 flex justify-center items-center transition duration-200 ease-in-out"
           />
-        ) : (
-          <Button
-            svgClass="mobile-navbar-menu"
-            svgURL="#icon-menu"
-            ariaLabel="menu"
-            backgroundColor="bg-transparent shadow-none"
-            borderColor="border-none"
-          />
-        )}
+          <div className="absolute top-4 right-0 shadow-md w-4 h-4 text-[0.65rem] leading-tight font-medium rounded-full flex items-center justify-center cursor-pointer bg-slate-200 text-deep-red">
+            {totalQuantity}
+          </div>
+        </div>
+        <Button
+          onClick={toggle}
+          svgClass={isOpen ? 'mobile-navbar-close' : 'mobile-navbar-menu'}
+          svgURL={isOpen ? '#icon-close' : '#icon-menu'}
+          ariaLabel={isOpen ? 'close' : 'menu'}
+          backgroundColor="bg-transparent shadow-none"
+          borderColor="border-none"
+          className={`${
+            isOpen
+              ? 'max-lg:fixed z-40 max-lg:block cursor-pointer'
+              : 'relative z-40 hidden max-lg:block cursor-pointer'
+          }`}
+        />
       </div>
 
       <div
