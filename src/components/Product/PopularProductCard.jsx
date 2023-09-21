@@ -13,8 +13,13 @@ import Image from '../Image/Image';
 import Price from '../Price';
 import ThumbImage from '../Image/ThumbImage';
 
-const PopularProductCard = ({ _id, imgURL, name, price, rating }) => {
-  const item = { _id, imgURL, name, price, rating };
+import Title from '../Title/Title';
+
+import ColorsBlock from './ColorsBlock';
+import Category from './Category';
+
+const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category }) => {
+  const item = { _id, imgURL, name, price, rating, color, category } || {};
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -53,16 +58,21 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating }) => {
           />
         </div>
       </div>
+      {category ? (
+        <Category category={category} />
+      ) : (
+        <div className="flex justify-start gap-2">
+          <Image src={star} alt="rating icon" width={24} height={24} />
+          <p className="font-montserrat text-xl leading-normal text-slate-600 dark:text-slate-200">
+            ({rating})
+          </p>
+        </div>
+      )}
 
-      <div className="flex justify-start gap-2">
-        <Image src={star} alt="rating icon" width={24} height={24} />
-        <p className="font-montserrat text-xl leading-normal text-slate-600 dark:text-slate-200">
-          ({rating})
-        </p>
-      </div>
-      <h3 className="mt-2 text-2xl leading-normal font-semibold font-palanquin">
+      <Title className="mt-2 text-xl leading-normal font-semibold font-palanquin">
         <ReactFitty>{name}</ReactFitty>
-      </h3>
+      </Title>
+
       <div className="flex-auto flex flex-col sm:flex-row items-center justify-between gap-2 w-full">
         <Button
           onClick={addProductToCart}
@@ -80,6 +90,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating }) => {
         />
         <Price amount={price} />
       </div>
+      {color && <ColorsBlock colors={color} />}
     </li>
   );
 };
