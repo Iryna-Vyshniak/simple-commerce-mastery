@@ -5,9 +5,10 @@ import PopularProductCard from '../Product/PopularProductCard';
 import Button from '../Button/Button';
 
 import ShoeCard from '../Product/ShoeCard';
+import ReviewCard from '../Review/ReviewCard';
 
-const Slider = ({ products, shoes, posterShoe, setPosterShoe }) => {
-  const slideCount = products ? products?.length : shoes?.length;
+const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
+  const slideCount = products ? products?.length : shoes?.length || reviews?.length;
   const screenWidth = window.innerWidth;
 
   const visibleSlides = useVisibleSlides();
@@ -16,7 +17,7 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe }) => {
   return (
     <article className="relative flex justify-center items-center max-w-screen-[1440px]">
       <section className="flex">
-        {(products?.length > 0 || shoes?.length > 0) && (
+        {(products?.length > 0 || shoes?.length > 0 || reviews?.length > 0) && (
           <>
             <div className="flex items-center justify-center touch-auto gap-x-4 transition duration-550 ease-linear">
               <Button
@@ -50,6 +51,19 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe }) => {
                         imgURL={popular}
                         changeBigShoeImage={shoe => setPosterShoe(shoe)}
                         bigShoeImg={posterShoe}
+                      />
+                    ))}
+                {reviews &&
+                  reviews
+                    .slice(currentIndex, currentIndex + (screenWidth >= 960 ? 3 : 1))
+                    .map(({ _id, avatarURL, name, rating, feedback }, index) => (
+                      <ReviewCard
+                        key={index}
+                        index={index}
+                        avatarURL={avatarURL}
+                        name={name}
+                        rating={rating}
+                        feedback={feedback}
                       />
                     ))}
               </ul>

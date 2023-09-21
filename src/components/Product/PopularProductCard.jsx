@@ -34,7 +34,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating }) => {
         />
         <div className="absolute bottom-0 left-0 z-10 w-full h-full flex flex-col justify-center items-center bg-white/80 group-hover:translate-y-0 translate-y-full transition duration-500 ease-in-out rounded-t-xl bg-gradient-to-r from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-500/80">
           <Button
-            onClick=""
+            // onClick=""
             svgClass="fill-slate-400 hover:fill-deep-red focus:fill-deep-red dark:stroke-white transition duration-200 ease-in-out"
             svgURL="#icon-heart"
             ariaLabel="heart for like"

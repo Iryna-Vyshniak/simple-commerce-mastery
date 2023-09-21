@@ -1,10 +1,11 @@
 import Image from '../Image/Image';
 import { star } from '../../assets/icons';
+import ThumbImage from '../Image/ThumbImage';
 
 const ReviewCard = ({ avatarURL, name, rating, feedback }) => {
   return (
-    <li className="flex justify-center items-center flex-col">
-      <Image
+    <li className="grid place-content-center place-items-center auto-rows-[minmax(50px,_1fr)] gap-2 h-[360px]">
+      <ThumbImage
         src={avatarURL}
         alt="customer"
         width={120}
