@@ -1,3 +1,5 @@
+import { Link, useLocation } from 'react-router-dom';
+
 import { arrowRight } from '../assets/icons';
 import { offer } from '../assets/images';
 import Button from '../components/Button/Button';
@@ -7,6 +9,7 @@ import Title from '../components/Title/Title';
 import { offers } from '../shared/data';
 
 const SpecialOffers = () => {
+  const location = useLocation();
   return (
     <Container className="flex flex-col md:flex-row justify-between items-center max-xl:flex-col-reverse gap-10">
       <div className="relative flex-1">
@@ -45,7 +48,9 @@ const SpecialOffers = () => {
           loftiest expectations. Your journey with us is nothing short of exceptional.
         </p>
         <div className="mt-11 flex flex-wrap gap-4">
-          <Button label="Shop now" iconURL={arrowRight} />
+          <Link to="/list" state={{ from: location }}>
+            <Button label="Shop now" iconURL={arrowRight} />
+          </Link>
           <Button
             label="Learn more"
             backgroundColor="bg-white"

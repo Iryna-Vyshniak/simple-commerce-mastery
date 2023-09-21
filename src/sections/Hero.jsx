@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
+import { Link, useLocation } from 'react-router-dom';
+
 import Container from '../components/Container';
 import { arrowRight } from '../assets/icons';
 import Button from '../components/Button/Button';
@@ -13,8 +15,9 @@ import Slider from '../components/Slider/Slider';
 
 const Hero = () => {
   const products = useSelector(selectProducts);
+  const location = useLocation();
 
-  const [posterShoe, setPosterShoe] = useState(products[0].popular.bigShoe);
+  const [posterShoe, setPosterShoe] = useState(products[0]?.popular?.bigShoe);
 
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 -mt-10">
@@ -33,7 +36,10 @@ const Hero = () => {
         <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm dark:text-slate-300">
           Discover stylish Nike arrivals, quality comfort, and innovation for your active life.
         </p>
-        <Button label="Shop now" iconURL={arrowRight} />
+        <Link to="/list" state={{ from: location }}>
+          <Button label="Shop now" iconURL={arrowRight} />
+        </Link>
+
         <Statistics />
         <video
           src="https://res.cloudinary.com/dkqxaid79/video/upload/v1693431501/nike/pexels-anna-shvets-5469607_1080p_jiplnu.mp4"
