@@ -1,9 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import { initialState } from './initialState';
-import { getAllShoes } from './products-operations';
+import { getAllShoes, getById } from './products-operations';
 
-const customArrThunks = [getAllShoes];
+const customArrThunks = [getAllShoes, getById];
 
 const status = {
   pending: 'pending',
@@ -23,6 +23,11 @@ const handleFulfilled = (state, { payload }) => {
   state.error = null;
   state.items = payload;
 };
+const handleFulfilledDetails = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  state.detailsItem = payload;
+};
 
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
@@ -38,6 +43,7 @@ const productsSlice = createSlice({
 
     builder
       .addCase(getAllShoes.fulfilled, handleFulfilled)
+      .addCase(getById.fulfilled, handleFulfilledDetails)
       .addMatcher(isAnyOf(...fn(pending)), handlePending)
       .addMatcher(isAnyOf(...fn(rejected)), handleRejected);
   }

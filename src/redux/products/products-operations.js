@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getAllProducts } from '../../shared/services/api-products';
+import { getDetails } from '../../shared/services/api-details';
 
 export const getAllShoes = createAsyncThunk(
   'products/getAll',
@@ -13,3 +14,12 @@ export const getAllShoes = createAsyncThunk(
     }
   }
 );
+
+export const getById = createAsyncThunk('products/getById', async (id, { rejectWithValue }) => {
+  try {
+    const data = await getDetails(id);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
