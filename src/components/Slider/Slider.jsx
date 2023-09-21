@@ -25,32 +25,35 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe }) => {
                 onClick={prevSlide}
                 className="absolute left-0 flex aspect-square w-8 -translate-x-1/2 cursor-pointer items-center justify-center self-center rounded-full bg-neutral-100 text-slate-900 transition hover:bg-slate-300 hover:text-white"
               />
-              {products &&
-                products
-                  .slice(currentIndex, currentIndex + visibleSlides)
-                  .map(({ _id, imgURL, name, price }, index) => (
-                    <PopularProductCard
-                      key={_id}
-                      _id={_id}
-                      imgURL={imgURL}
-                      name={name}
-                      price={price}
-                      onClick={() => goToSlide(index)}
-                    />
-                  ))}
+              <ul className="flex items-center justify-center touch-auto gap-x-4 transition duration-550 ease-linear">
+                {products &&
+                  products
+                    .slice(currentIndex, currentIndex + visibleSlides)
+                    .map(({ _id, imgURL, name, price, rating }, index) => (
+                      <PopularProductCard
+                        key={_id}
+                        _id={_id}
+                        imgURL={imgURL}
+                        name={name}
+                        price={price}
+                        rating={rating}
+                        onClick={() => goToSlide(index)}
+                      />
+                    ))}
+                {shoes &&
+                  shoes
+                    .slice(currentIndex, currentIndex + (screenWidth >= 960 ? 3 : 1))
+                    .map(({ _id, popular }, index) => (
+                      <ShoeCard
+                        key={_id}
+                        index={index}
+                        imgURL={popular}
+                        changeBigShoeImage={shoe => setPosterShoe(shoe)}
+                        bigShoeImg={posterShoe}
+                      />
+                    ))}
+              </ul>
 
-              {shoes &&
-                shoes
-                  .slice(currentIndex, currentIndex + (screenWidth >= 960 ? 3 : 1))
-                  .map(({ _id, popular }, index) => (
-                    <ShoeCard
-                      key={_id}
-                      index={index}
-                      imgURL={popular}
-                      changeBigShoeImage={shoe => setPosterShoe(shoe)}
-                      bigShoeImg={posterShoe}
-                    />
-                  ))}
               <Button
                 type="button"
                 onClick={nextSlide}

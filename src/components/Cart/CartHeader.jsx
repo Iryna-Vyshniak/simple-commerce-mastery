@@ -21,7 +21,7 @@ const CartHeader = ({ onCartToggle, onClearCartItems }) => {
         <div className="grid items-center">
           <h2 className="text-base font-medium text-slate-900">
             Your Cart:
-            <span className="inline-block w-9 h-9 rounded-full ml-2 p-2 text-white bg-slate-300 font-normal text-[12px] text-center">
+            <span className="inline-block w-9 h-9 rounded-full ml-2 p-2 text-deep-red bg-slate-200 font-normal text-[12px] text-center shadow-lg">
               {totalQuantity}
             </span>
           </h2>

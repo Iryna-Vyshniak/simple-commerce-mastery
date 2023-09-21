@@ -30,7 +30,7 @@ const ViewDetailsPage = () => {
   return (
     <Container>
       <article className="-mt-10">
-        <div className="lg:grid lg:grid-cols-2 grid items-center justify-center gap-4 padding  px-4 pt-16 shadow-2xl bg-primary bg-gradient-to-b from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-500">
+        <div className="lg:grid lg:grid-cols-2 grid items-center justify-center gap-4 padding  px-4 pt-16 shadow-2xl bg-primary bg-gradient-to-t from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-500">
           <MainTitle className="text-5xl">
             We Provide You <span className="text-deep-red">Super Quality</span> Shoes
           </MainTitle>

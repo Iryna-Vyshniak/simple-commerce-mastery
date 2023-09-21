@@ -17,13 +17,18 @@ const Hero = () => {
   const [posterShoe, setPosterShoe] = useState(products[0].popular.bigShoe);
 
   return (
-    <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 padding-x -mt-10">
-      <div className=" xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
+    <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 -mt-10">
+      <div className=" xl:w-2/5 flex flex-col justify-center items-start w-full pt-28">
         <p className="text-xl font-montserrat text-deep-red">Our Autumn collections</p>
         <MainTitle>
-          <span className="relative z-10 xl:whitespace-nowrap pr-10">Welcome to</span>
+          <span className="relative z-10 xl:whitespace-nowrap pr-10 dark:drop-shadow-[0_1px_0.5px_rgba(0,0,20,1)]">
+            Welcome to
+          </span>
           <br />
-          <span className="text-deep-red inline-block mt-3">NIKE,</span> inc.
+          <span className="text-deep-red inline-block mt-3 drop-shadow-[0_1px_0.5px_rgba(0,0,20,1)]">
+            NIKE,
+          </span>{' '}
+          inc.
         </MainTitle>
         <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm dark:text-slate-300">
           Discover stylish Nike arrivals, quality comfort, and innovation for your active life.

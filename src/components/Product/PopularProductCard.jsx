@@ -11,8 +11,8 @@ import Image from '../Image/Image';
 import Price from '../Price';
 import ThumbImage from '../Image/ThumbImage';
 
-const PopularProductCard = ({ _id, imgURL, name, price }) => {
-  const item = { _id, imgURL, name, price };
+const PopularProductCard = ({ _id, imgURL, name, price, rating }) => {
+  const item = { _id, imgURL, name, price, rating };
 
   const dispatch = useDispatch();
 
@@ -24,15 +24,18 @@ const PopularProductCard = ({ _id, imgURL, name, price }) => {
   };
 
   return (
-    <li className="flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-deep-red active:shadow-md transition duration-200 ease-in-out">
+    <li className="flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-deep-red active:shadow-md transition duration-200 ease-in-out">
       <ThumbImage
         src={imgURL}
         alt={name}
-        className="flex items-center justify-center w-[282px] h-[250px]"
+        classDiv="flex items-center justify-center h-[180px] w-full"
+        className="w-full h-full object-center object-cover"
       />
       <div className="flex justify-start gap-2">
         <Image src={star} alt="rating icon" width={24} height={24} />
-        <p className="font-montserrat text-xl leading-normal text-slate-gray">(4.5)</p>
+        <p className="font-montserrat text-xl leading-normal text-slate-gray dark:text-slate-200">
+          ({rating})
+        </p>
       </div>
       <h3 className="mt-2 text-2xl leading-normal font-semibold font-palanquin">
         <ReactFitty>{name}</ReactFitty>

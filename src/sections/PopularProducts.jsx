@@ -36,7 +36,7 @@ const PopularProducts = () => {
         <Title>
           Our <span className="text-deep-red"> Popular </span> Products
         </Title>
-        <p className="lg:max-w-lg mt-2 info-text text-slate-gray">
+        <p className="lg:max-w-lg mt-2 info-text text-slate-gray dark:text-slate-300">
           Experience top-notch quality and style with our sought-after selections. Discover a world
           of comfort, design, and value
         </p>
