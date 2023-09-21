@@ -30,7 +30,14 @@ export default {
         'deep-red': '#b91c1c',
         'slate-gray': '#6D6D6D',
         'pale-blue': '#F5F6FF',
-        'white-400': 'rgba(255, 255, 255, 0.80)'
+        'white-400': 'rgba(255, 255, 255, 0.80)',
+        'bg-orange-500': '#f5e9dc',
+        'bg-white-500': '#ffffff',
+        'bg-blue-500': '#2563eb',
+        'bg-slate-900': '#020617',
+        'bg-red-500': '#b91c1c',
+        'bg-yellow-500': '#facc15',
+        'bg-green-500': '#15803d'
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
