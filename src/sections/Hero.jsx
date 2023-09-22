@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -18,6 +18,10 @@ const Hero = () => {
   const location = useLocation();
 
   const [posterShoe, setPosterShoe] = useState(products[0]?.popular?.bigShoe);
+
+  useEffect(() => {
+    setPosterShoe(products[0]?.popular?.bigShoe);
+  }, [products]);
 
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 -mt-10">

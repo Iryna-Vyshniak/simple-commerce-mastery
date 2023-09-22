@@ -1,8 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { ReactFitty } from 'react-fitty';
 
-import { Link, useLocation } from 'react-router-dom';
-
 import { star } from '../../assets/icons';
 
 import { addToCart, setOpenCart } from '../../redux/cart/cart-slice';
@@ -11,18 +9,17 @@ import Button from '../Button/Button';
 
 import Image from '../Image/Image';
 import Price from '../Price';
-import ThumbImage from '../Image/ThumbImage';
 
 import Title from '../Title/Title';
 
 import ColorsBlock from './ColorsBlock';
 import Category from './Category';
+import Overlay from './Overlay';
 
 const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category }) => {
   const item = { _id, imgURL, name, price, rating, color, category } || {};
 
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const addProductToCart = () => dispatch(addToCart(item));
 
@@ -33,31 +30,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category 
 
   return (
     <li className="relative flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-deep-red active:shadow-md transition duration-200 ease-in-out">
-      <div className="relative w-full overflow-hidden group  h-[180px]">
-        <ThumbImage
-          src={imgURL}
-          alt={name}
-          classDiv="flex items-center justify-center h-full w-full"
-          className="w-full h-auto object-center object-cover"
-        />
-        <div className="absolute bottom-0 left-0 z-10 w-full h-full flex flex-col justify-center items-center bg-white/80 group-hover:translate-y-0 translate-y-full transition duration-500 ease-in-out rounded-t-xl bg-gradient-to-r from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-500/80">
-          <Link
-            to={`/${_id}`}
-            state={{ from: location }}
-            className="absolute top-1 left-1 w-[150px] h-10 px-6 flex justify-center items-center gap-2 py-4 text-sm text-slate-800 dark:text-slate-800 font-montserrat leading-none shadow-xl hover:bg-slate-300  focus:bg-slate-300 active:bg-slate-300  hover:shadow-sm focus:shadow-sm active:shadow-sm rounded-xl transition duration-200 ease-in-out"
-          >
-            Read More
-          </Link>
-          <Button
-            // onClick=""
-            svgClass="fill-slate-400 hover:fill-deep-red focus:fill-deep-red dark:stroke-white transition duration-200 ease-in-out"
-            svgURL="#icon-heart"
-            ariaLabel="heart for like"
-            backgroundColor="bg-white"
-            className="h-8 px-2 flex justify-center items-center transition duration-200 ease-in-out"
-          />
-        </div>
-      </div>
+      <Overlay imgURL={imgURL} id={_id} name={name} />
       {category ? (
         <Category category={category} />
       ) : (
