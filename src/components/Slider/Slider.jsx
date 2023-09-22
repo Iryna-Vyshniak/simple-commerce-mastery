@@ -51,6 +51,7 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
                         imgURL={popular}
                         changeBigShoeImage={shoe => setPosterShoe(shoe)}
                         bigShoeImg={posterShoe}
+                        divClassName="object-cover"
                       />
                     ))}
                 {reviews &&
@@ -58,7 +59,7 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
                     .slice(currentIndex, currentIndex + (screenWidth >= 960 ? 3 : 1))
                     .map(({ _id, avatarURL, name, rating, feedback }, index) => (
                       <ReviewCard
-                        key={index}
+                        key={_id}
                         index={index}
                         avatarURL={avatarURL}
                         name={name}

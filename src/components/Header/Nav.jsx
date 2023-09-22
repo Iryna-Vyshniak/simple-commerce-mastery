@@ -38,7 +38,7 @@ const Nav = () => {
         />
       </Link>
       <NavMenu />
-      <div className="flex items-center justify-center gap-3 ml-auto">
+      <div className="flex items-center justify-center gap-2 ml-auto">
         <Switcher />
         <div className="relative">
           <Button
@@ -47,7 +47,7 @@ const Nav = () => {
             svgURL="#icon-shopping-bag"
             ariaLabel="cart"
             backgroundColor="bg-transparent"
-            className="h-8 px-2 flex justify-center items-center transition duration-200 ease-in-out"
+            className="h-8 w-8 px-2 flex justify-center items-center transition duration-200 ease-in-out"
           />
           <div className="absolute top-4 right-0 shadow-md w-4 h-4 text-[0.65rem] leading-tight font-medium rounded-full flex items-center justify-center cursor-pointer bg-slate-200 text-deep-red">
             {totalQuantity}

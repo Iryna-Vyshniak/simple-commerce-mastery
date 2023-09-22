@@ -14,7 +14,7 @@ import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
 const ViewDetailsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  const viewsShoes = products.find(product => product.name === 'Nike Air Force 1 ’07');
+  const viewsShoes = products.find(product => product.name === 'Nike Force ’07');
 
   const addProductToCart = () => dispatch(addToCart(viewsShoes));
 

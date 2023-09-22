@@ -33,12 +33,12 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category 
 
   return (
     <li className="relative flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-deep-red active:shadow-md transition duration-200 ease-in-out">
-      <div className="relative w-full overflow-hidden group">
+      <div className="relative w-full overflow-hidden group  h-[180px]">
         <ThumbImage
           src={imgURL}
           alt={name}
-          classDiv="flex items-center justify-center h-[180px] w-full"
-          className="w-full h-full object-center object-cover"
+          classDiv="flex items-center justify-center h-full w-full"
+          className="w-full h-auto object-center object-cover"
         />
         <div className="absolute bottom-0 left-0 z-10 w-full h-full flex flex-col justify-center items-center bg-white/80 group-hover:translate-y-0 translate-y-full transition duration-500 ease-in-out rounded-t-xl bg-gradient-to-r from-white to-white/5  dark:shadow-slate-400 dark:bg-slate-500/80">
           <Link
