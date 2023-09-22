@@ -1,9 +1,11 @@
+import icons from '../../assets/icons/icons.svg';
+
 import Button from './Button';
 
 const ButtonGroup = ({ addProductToCart, handleBuyProduct }) => {
   return (
-    <div className="flex space-x-4 mb-6 text-sm font-medium">
-      <div className="flex-auto flex space-x-4">
+    <div className="flex flex-wrap gap-2  mb-6 pr-2 text-sm font-medium">
+      <div className="flex-auto flex flex-wrap gap-2 ">
         <Button
           onClick={handleBuyProduct}
           type="submit"
@@ -13,7 +15,7 @@ const ButtonGroup = ({ addProductToCart, handleBuyProduct }) => {
         <Button
           onClick={addProductToCart}
           backgroundColor="bg-transparent"
-          textColor="text-slate-900"
+          textColor="text-slate-900 dark:text-slate-400"
           borderColor="border-slate-200"
           className="w-[150px] h-10 px-6 text-sm rounded-md flex justify-center items-center gap-2  py-4 border font-montserrat leading-none"
           type="button"
@@ -22,16 +24,16 @@ const ButtonGroup = ({ addProductToCart, handleBuyProduct }) => {
       </div>
 
       <button
-        className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200 shadow-lg active:shadow-sm transition duration-200 ease-in-out"
+        className="flex-none flex items-center justify-center w-10 h-9 rounded-md text-slate-300 border border-slate-200 shadow-lg active:shadow-sm transition duration-200 ease-in-out"
         type="button"
         aria-label="Like"
       >
-        <svg width="20" height="20" fill="currentColor" aria-hidden="true">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-          />
+        <svg
+          width="18"
+          height="18"
+          className="fill-slate-400 hover:stroke-deep-red focus:stroke-deep-red  hover:fill-deep-red focus:fill-deep-red dark:stroke-white dark:hover:stroke-deep-red dark:focus:stroke-deep-red transition duration-200 ease-in-out"
+        >
+          <use href={icons + '#icon-heart'} />
         </svg>
       </button>
     </div>
