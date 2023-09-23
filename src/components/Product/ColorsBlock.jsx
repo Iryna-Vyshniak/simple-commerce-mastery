@@ -1,14 +1,22 @@
+import { useState } from 'react';
+
 import { uniqueValues } from '../../shared/utils';
 
 const ColorsBlock = ({ colors, products, activeColors }) => {
+  const [selectedColor, setSelectedColor] = useState(activeColors?.[0] || null);
+
+  const handleColorChange = color => {
+    setSelectedColor(color);
+  };
+
   return (
-    <ul className="flex colors-center justify-center gap-2">
-      {colors && (
-        <>
-          {colors.map((color, idx) => (
-            <li
-              key={idx}
-              className={`h-5 w-5 rounded-full ${
+    <>
+      {colors?.length > 0 && (
+        <div className="flex items-center space-x-3 mt-4">
+          {colors.map(color => (
+            <label
+              key={color}
+              className={`relative -m-0.5 flex items-center justify-center rounded-full p-0.5 focus:outline-none shadow-inner shadow-white/50 border border-slate-500 ${
                 color
                   ? color === 'white'
                     ? `bg-${color}`
@@ -16,39 +24,87 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
                     ? `bg-${color}-900`
                     : `bg-${color}-500`
                   : ''
-              } border border-slate-400 shadow-lg`}
-            ></li>
-          ))}
-        </>
-      )}
-      {products && (
-        <>
-          {uniqueValues(products, 'color').map((color, idx) => {
-            const isActiveColor = activeColors.includes(color);
-            const isWhite = color === 'white';
-            const isSlate = color === 'slate';
-            return (
-              <li
-                key={idx}
-                className={`h-5 w-5 rounded-full ${
+              } ${
+                selectedColor === color ? 'ring-2 ring-slate-200' : 'shadow-lg shadow-slate-300'
+              }`}
+            >
+              <input
+                type="radio"
+                value={color}
+                name="color"
+                checked={selectedColor === color}
+                onChange={() => handleColorChange(color)}
+                className="sr-only"
+              />
+              <span
+                aria-hidden="true"
+                className={`h-4 w-4 rounded-full border border-black border-opacity-10 ${
                   color
-                    ? isWhite
+                    ? color === 'white'
                       ? `bg-${color}`
-                      : isSlate
+                      : color === 'slate'
                       ? `bg-${color}-900`
                       : `bg-${color}-500`
                     : ''
-                }  ${
-                  isActiveColor
-                    ? 'ring-2 ring-slate-200 shadow-lg shadow-slate-400'
-                    : 'shadow-inner shadow-white/50 border border-slate-500'
                 }`}
-              ></li>
+              />
+            </label>
+          ))}
+        </div>
+      )}
+      {products?.length > 0 && (
+        <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-3 ml-2">
+          {uniqueValues(products, 'color').map(color => {
+            const isActiveColor = activeColors.includes(color);
+
+            return (
+              <label
+                key={color}
+                className={`relative -m-0.5 flex items-center justify-center rounded-full p-0.5 focus:outline-none
+               ${
+                 isActiveColor
+                   ? selectedColor === color
+                     ? 'cursor-pointer ring-2 ring-slate-200 shadow-md shadow-slate-400 border-none'
+                     : 'cursor-pointer ring-2 ring-transparent shadow-lg shadow-slate-400'
+                   : 'cursor-not-allowed shadow-inner shadow-white/50 border border-slate-300 dark:border-slate-700'
+               }
+                ${
+                  color
+                    ? color === 'white'
+                      ? `bg-${color}`
+                      : color === 'slate'
+                      ? `bg-${color}-900`
+                      : `bg-${color}-500`
+                    : 'cursor-not-allowed shadow-inner shadow-white/50 border border-slate-300'
+                }`}
+              >
+                <input
+                  type="radio"
+                  value={color}
+                  name="color"
+                  disabled={!isActiveColor}
+                  checked={selectedColor === color}
+                  onChange={() => handleColorChange(color)}
+                  className="sr-only"
+                />
+                <span
+                  aria-hidden="true"
+                  className={`h-4 w-4 rounded-full border border-black border-opacity-10 shadow-lg ${
+                    color
+                      ? color === 'white'
+                        ? `bg-${color}`
+                        : color === 'slate'
+                        ? `bg-${color}-900`
+                        : `bg-${color}-500`
+                      : 'cursor-not-allowed shadow-inner shadow-white/50 border border-slate-300 dark:border-slate-700'
+                  }`}
+                />
+              </label>
             );
           })}
-        </>
+        </div>
       )}
-    </ul>
+    </>
   );
 };
 
