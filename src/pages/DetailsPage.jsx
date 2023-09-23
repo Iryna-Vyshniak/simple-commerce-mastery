@@ -13,14 +13,16 @@ import MainTitle from '../components/Title/MainTitle';
 import Price from '../components/Price';
 import ViewsCount from '../components/Product/ViewsCount';
 import Category from '../components/Product/Category';
-import ColorsBlock from '../components/Product/ColorsBlock';
+
 import Wrapper from '../components/Wrapper';
-import SizesBlock from '../components/Product/SizesBlock';
+
 import ButtonGroup from '../components/Button/ButtonGroup';
 import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
 import BriefIntro from '../components/Product/BriefIntro';
 import TextBlock from '../components/TextBlock';
 import Description from '../components/Product/Description';
+
+import Form from '../components/Product/Form';
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
@@ -46,23 +48,26 @@ const DetailsPage = () => {
     setPosterShoe(details?.imgURL);
   }, [details?.imgURL]);
 
+  if (!details || !details._id) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section className="max-container padding">
       <BackLink to={backLinkHref}>Back</BackLink>
       <Container>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 mb-6">
-          {' '}
           <div className="relative flex flex-col gap-y-4 flex-1 w-full">
             <div className="flex flex-col gap-y-4 p-2 border border-white shadow-lg rounded-2xl">
               <ThumbImage
                 src={posterShoe}
-                alt={details?.name}
+                alt={details.name}
                 height={'640'}
                 width={'640'}
                 className="max-w-full h-[640px] w-[640px] object-center object-cover rounded-2xl"
               />
               <ul className="grid grid-cols-3 place-content-center place-items-center gap-4">
-                {details?.gallery?.map((item, idx) => (
+                {details.gallery.map((item, idx) => (
                   <ShoeCard
                     key={idx}
                     index={idx}
@@ -94,11 +99,8 @@ const DetailsPage = () => {
               />
               <ViewsCount count={details?.viewsCount} />
             </Wrapper>
-            <Wrapper title="Color:">
-              <ColorsBlock products={products} activeColors={details?.color} />
-            </Wrapper>
-            <Wrapper title="Sizes:">
-              <SizesBlock products={products} activeSizes={details?.size} />
+            <Wrapper>
+              <Form products={products} activeColors={details?.color} activeSizes={details?.size} />
             </Wrapper>
             <Description text={details?.description} />
 

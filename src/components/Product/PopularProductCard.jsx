@@ -12,9 +12,9 @@ import Price from '../Price';
 
 import Title from '../Title/Title';
 
-import ColorsBlock from './ColorsBlock';
 import Category from './Category';
 import Overlay from './Overlay';
+import Form from './Form';
 
 const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category }) => {
   const item = { _id, imgURL, name, price, rating, color, category } || {};
@@ -29,7 +29,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category 
   };
 
   return (
-    <li className="relative flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-deep-red active:shadow-md transition duration-200 ease-in-out">
+    <li className="relative flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-slate-200 active:shadow-md transition duration-200 ease-in-out">
       <Overlay imgURL={imgURL} id={_id} name={name} />
       {category ? (
         <Category category={category} />
@@ -63,7 +63,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category 
         />
         <Price amount={price} />
       </div>
-      {color && <ColorsBlock colors={color} />}
+      {color && <Form colors={color} />}
     </li>
   );
 };
