@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { uniqueValues } from '../../shared/utils';
+import { selectFilter } from '../../redux/products/products-selectors';
+import { setFilter } from '../../redux/products/products-slice';
 
 const ColorsBlock = ({ colors, products, activeColors }) => {
-  const [selectedColor, setSelectedColor] = useState(activeColors?.[0] || null);
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
   const handleColorChange = color => {
-    setSelectedColor(color);
+    if (!filter) {
+      dispatch(setFilter({ color }));
+    } else if (filter.color === color) {
+      dispatch(setFilter({ ...filter, color: '' }));
+    } else {
+      dispatch(setFilter({ ...filter, color }));
+    }
   };
 
   return (
@@ -16,7 +25,7 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
           {colors.map(color => (
             <label
               key={color}
-              className={`relative -m-0.5 flex items-center justify-center rounded-full p-0.5 focus:outline-none shadow-inner shadow-white/50 border border-slate-500 ${
+              className={`relative -m-0.5 flex items-center justify-center rounded-full p-0.5 focus:outline-none  border border-slate-500  ${
                 color
                   ? color === 'white'
                     ? `bg-${color}`
@@ -25,14 +34,16 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
                     : `bg-${color}-500`
                   : ''
               } ${
-                selectedColor === color ? 'ring-2 ring-slate-200' : 'shadow-lg shadow-slate-300'
+                filter?.color === color
+                  ? 'ring-4 ring-red-100 shadow-lg shadow-slate-500'
+                  : 'shadow-lg shadow-slate-400 dark:shadow-md dark:shadow-slate-800'
               }`}
             >
               <input
                 type="radio"
                 value={color}
                 name="color"
-                checked={selectedColor === color}
+                checked={filter?.color === color}
                 onChange={() => handleColorChange(color)}
                 className="sr-only"
               />
@@ -63,8 +74,8 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
                 className={`relative -m-0.5 flex items-center justify-center rounded-full p-0.5 focus:outline-none
                ${
                  isActiveColor
-                   ? selectedColor === color
-                     ? 'cursor-pointer ring-2 ring-slate-200 shadow-md shadow-slate-400 border-none'
+                   ? filter?.color === color
+                     ? 'cursor-pointer ring-4 ring-red-100 shadow-lg shadow-slate-500 border-none'
                      : 'cursor-pointer ring-2 ring-transparent shadow-lg shadow-slate-400'
                    : 'cursor-not-allowed shadow-inner shadow-white/50 border border-slate-300 dark:border-slate-700'
                }
@@ -83,7 +94,7 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
                   value={color}
                   name="color"
                   disabled={!isActiveColor}
-                  checked={selectedColor === color}
+                  checked={filter?.color === color}
                   onChange={() => handleColorChange(color)}
                   className="sr-only"
                 />
