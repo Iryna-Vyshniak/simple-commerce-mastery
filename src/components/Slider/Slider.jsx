@@ -24,7 +24,7 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
                 type="button"
                 label="&lt;"
                 onClick={prevSlide}
-                className="absolute left-0 flex aspect-square w-8 -translate-x-1/2 cursor-pointer items-center justify-center self-center rounded-full bg-neutral-100 text-slate-900 transition hover:bg-slate-300 hover:text-white"
+                className="absolute left-0 z-[10] flex aspect-square w-8 -translate-x-1/2 cursor-pointer items-center justify-center self-center rounded-full bg-neutral-100 text-slate-900 transition hover:bg-slate-300 hover:text-white"
               />
               <ul className="flex items-center justify-center touch-auto gap-x-4 transition duration-550 ease-linear">
                 {products &&
@@ -73,7 +73,7 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
                 type="button"
                 onClick={nextSlide}
                 label="&gt;"
-                className="absolute right-0 flex aspect-square w-8 translate-x-1/2 cursor-pointer items-center justify-center self-center rounded-full bg-neutral-100 dark:bg-slate-400 text-slate-900 transition hover:bg-slate-300 hover:text-white"
+                className="absolute right-0 z-[10] flex aspect-square w-8 translate-x-1/2 cursor-pointer items-center justify-center self-center rounded-full bg-neutral-100 dark:bg-slate-400 text-slate-900 transition hover:bg-slate-300 hover:text-white"
               />
             </div>
           </>

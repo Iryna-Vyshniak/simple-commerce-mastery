@@ -43,7 +43,7 @@ const Cart = () => {
       }`}
     >
       <div
-        className={`absolute right-0 z-[150] flex flex-col items-center justify-center h-screen max-w-xl w-full blur-cart duration-500  ${
+        className={`absolute right-0 z-[150] flex flex-col justify-start h-screen max-w-xl w-full blur-cart duration-500  ${
           isOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-8'
         }`}
       >

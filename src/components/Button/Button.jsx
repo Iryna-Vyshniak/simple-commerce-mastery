@@ -13,13 +13,15 @@ const Button = ({
   borderColor,
   fullWidth,
   className,
-  onClick
+  onClick,
+  disabled
 }) => {
   return (
     <button
       data-id={id}
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`${
         className
           ? className
