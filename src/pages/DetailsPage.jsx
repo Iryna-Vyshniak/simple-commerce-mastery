@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import { selectById, selectProducts } from '../redux/products/products-selectors';
+import { selectById, selectFilter, selectProducts } from '../redux/products/products-selectors';
 import { getById } from '../redux/products/products-operations';
 import BackLink from '../components/BackLink';
 import Container from '../components/Container';
@@ -23,21 +24,40 @@ import TextBlock from '../components/TextBlock';
 import Description from '../components/Product/Description';
 
 import Form from '../components/Product/Form';
+import Loader from '../components/Loader';
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
+  const filter = useSelector(selectFilter);
   const details = useSelector(selectById);
+
+  const detailsCard = { ...details, currentSize: filter.size };
+
   const { id } = useParams();
   const location = useLocation();
+
   const backLinkHref = location.state?.from ?? '/';
+
   const [posterShoe, setPosterShoe] = useState(details?.imgURL);
 
-  const addProductToCart = () => dispatch(addToCart(details));
+  const addProductToCart = () => {
+    if (!filter.size) {
+      toast.warn('Please, check size');
+      return;
+    }
+    dispatch(addToCart(detailsCard));
+    toast.success('Add shoes to cart');
+  };
 
   const handleBuyProduct = () => {
-    dispatch(addToCart(details));
+    if (!filter.size) {
+      toast.warn('Please, check size');
+      return;
+    }
+    dispatch(addToCart(detailsCard));
     dispatch(setOpenCart(true));
+    toast.success('Add shoes to cart');
   };
 
   useEffect(() => {
@@ -49,7 +69,7 @@ const DetailsPage = () => {
   }, [details?.imgURL]);
 
   if (!details || !details._id) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
@@ -104,7 +124,11 @@ const DetailsPage = () => {
             </Wrapper>
             <Description text={details?.description} />
 
-            <ButtonGroup addProductToCart={addProductToCart} handleBuyProduct={handleBuyProduct} />
+            <ButtonGroup
+              id={details?._id}
+              addProductToCart={addProductToCart}
+              handleBuyProduct={handleBuyProduct}
+            />
           </div>
         </div>
 

@@ -1,5 +1,6 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ReactFitty } from 'react-fitty';
+import { toast } from 'react-toastify';
 
 import { star } from '../../assets/icons';
 
@@ -12,21 +13,38 @@ import Price from '../Price';
 
 import Title from '../Title/Title';
 
+import { selectCartProducts } from '../../redux/cart/cart-selectors';
+
 import Category from './Category';
 import Overlay from './Overlay';
 import Form from './Form';
 
-const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category }) => {
-  const item = { _id, imgURL, name, price, rating, color, category } || {};
+const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category, currentSize }) => {
+  const item = { _id, imgURL, name, price, rating, color, category, currentSize } || {};
 
   const dispatch = useDispatch();
+  const buyProducts = useSelector(selectCartProducts);
 
-  const addProductToCart = () => dispatch(addToCart(item));
+  const addProductToCart = () => {
+    if (!currentSize) {
+      toast.warn('Please, check size');
+      return;
+    }
+    dispatch(addToCart(item));
+    toast.success('Add shoes to cart');
+  };
 
   const handleBuyProduct = () => {
+    if (!currentSize) {
+      toast.warn('Please, check size');
+      return;
+    }
     dispatch(addToCart(item));
     dispatch(setOpenCart(true));
+    toast.success('Add shoes to cart');
   };
+
+  const isBuy = buyProducts.some(item => item._id === _id);
 
   return (
     <li className="relative flex flex-1 flex-col items-center justify-center gap-2 p-3 w-full max-sm:w-full h-[420px] shadow-xl border-2 rounded-xl border-white dark:border-none cursor-pointer active:border-slate-200 active:shadow-md transition duration-200 ease-in-out">
@@ -49,7 +67,7 @@ const PopularProductCard = ({ _id, imgURL, name, price, rating, color, category 
       <div className="flex-auto flex flex-col sm:flex-row items-center justify-between gap-2 w-full">
         <Button
           onClick={addProductToCart}
-          svgClass="btn-cart"
+          svgClass={isBuy ? 'fill-deep-red' : 'btn-cart'}
           svgURL="#icon-shopping-bag"
           ariaLabel="add to cart"
           backgroundColor="bg-transparent"
