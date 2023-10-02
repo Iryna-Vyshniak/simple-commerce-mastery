@@ -10,6 +10,7 @@ import ThumbImage from '../components/Image/ThumbImage';
 import Views from '../components/Views';
 import { selectProducts } from '../redux/products/products-selectors';
 import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
+import Loader from '../components/Loader';
 
 const ViewDetailsPage = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,10 @@ const ViewDetailsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0, { smooth: true });
   }, []);
+
+  if (!products) {
+    return <Loader />;
+  }
 
   return (
     <Container>
@@ -53,7 +58,11 @@ const ViewDetailsPage = () => {
             {viewsShoes.description}
           </p>
           <Views />
-          <ButtonGroup addProductToCart={addProductToCart} handleBuyProduct={handleBuyProduct} />
+          <ButtonGroup
+            id={viewsShoes._id}
+            addProductToCart={addProductToCart}
+            handleBuyProduct={handleBuyProduct}
+          />
           <p className="text-sm text-slate-700 dark:text-slate-400">
             Free shipping on all continental US orders.
           </p>

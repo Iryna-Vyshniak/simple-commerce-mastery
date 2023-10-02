@@ -10,6 +10,7 @@ import Title from '../components/Title/Title';
 import { selectError, selectIsLoading, selectProducts } from '../redux/products/products-selectors';
 import { getAllShoes } from '../redux/products/products-operations';
 import Slider from '../components/Slider/Slider';
+import Loader from '../components/Loader';
 
 const PopularProducts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -17,7 +18,7 @@ const PopularProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
 
-  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const [searchParams] = useSearchParams({ page: 1 });
   const page = Number(searchParams.get('page') || 1);
 
   useEffect(() => {
@@ -25,12 +26,12 @@ const PopularProducts = () => {
   }, [dispatch, page]);
 
   if (!products) {
-    return <p>...Loading</p>;
+    return <Loader />;
   }
 
   return (
     <Container className="max-sm:mt-12">
-      {isLoading && <p>...Loading</p>}
+      {isLoading && <Loader />}
       {error && <p>Oops, mistake... Please try again</p>}
       <div className="flex flex-col justify-start gap-5">
         <Title>

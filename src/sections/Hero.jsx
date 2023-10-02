@@ -12,6 +12,8 @@ import Statistics from '../components/Statistics';
 import Image from '../components/Image/Image';
 import { selectProducts } from '../redux/products/products-selectors';
 import Slider from '../components/Slider/Slider';
+import { bigShoe1 } from '../assets/images';
+import Loader from '../components/Loader';
 
 const Hero = () => {
   const products = useSelector(selectProducts);
@@ -22,6 +24,10 @@ const Hero = () => {
   useEffect(() => {
     setPosterShoe(products[0]?.popular?.bigShoe);
   }, [products]);
+
+  if (!products) {
+    return <Loader />;
+  }
 
   return (
     <Container className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 -mt-10">
@@ -55,13 +61,17 @@ const Hero = () => {
       </div>
       <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary dark:bg-slate-400 bg-hero bg-cover bg-center shadow-xl">
         <Image
-          src={posterShoe}
+          src={posterShoe ? posterShoe : bigShoe1}
           alt="shoe collection"
           width={710}
           className="object-cover relative z-10 -rotate-[30deg] hover:rotate-0 transition duration-300 ease-in-out"
         />
         <div className="absolute -bottom-[5%] sm:right-[10%] flex sm:gap-6 gap-4  max-sm:px-6">
-          <Slider shoes={products} posterShoe={posterShoe} setPosterShoe={setPosterShoe} />
+          <Slider
+            shoes={products}
+            posterShoe={posterShoe ? posterShoe : bigShoe1}
+            setPosterShoe={setPosterShoe}
+          />
         </div>
       </div>
     </Container>

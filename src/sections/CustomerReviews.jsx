@@ -7,6 +7,7 @@ import Slider from '../components/Slider/Slider';
 import Title from '../components/Title/Title';
 import { selectReviews } from '../redux/reviews/reviews-selectors';
 import { getAllReviews } from '../redux/reviews/reviews-operations';
+import Loader from '../components/Loader';
 
 const CustomerReviews = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ const CustomerReviews = () => {
   useEffect(() => {
     dispatch(getAllReviews());
   }, [dispatch]);
+
+  if (!reviews) {
+    return <Loader />;
+  }
 
   return (
     <Container>
