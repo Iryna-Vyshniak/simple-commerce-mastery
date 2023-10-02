@@ -37,7 +37,24 @@ const handleRejected = (state, { payload }) => {
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    setToFavorite: (state, { payload }) => {
+      const product = state.items.find(item => item._id === payload);
+
+      if (product) {
+        state.favorites.push(product._id);
+      }
+    },
+    removeFromFavorite: (state, { payload }) => {
+      state.favorites = state.favorites.filter(item => item !== payload);
+    },
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
+    resetFilter: state => {
+      state.filter = {};
+    }
+  },
   extraReducers: builder => {
     const { pending, rejected } = status;
 
@@ -49,4 +66,5 @@ const productsSlice = createSlice({
   }
 });
 
+export const { setToFavorite, removeFromFavorite, setFilter, resetFilter } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;
