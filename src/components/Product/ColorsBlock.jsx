@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { uniqueValues } from '../../shared/utils';
-import { selectFilter } from '../../redux/products/products-selectors';
+import { selectFilter, selectProducts } from '../../redux/products/products-selectors';
 import { setFilter } from '../../redux/products/products-slice';
 
-const ColorsBlock = ({ colors, products, activeColors }) => {
+const ColorsBlock = ({ colors, activeColors }) => {
   const filter = useSelector(selectFilter);
+  const products = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   const handleColorChange = color => {
@@ -20,7 +21,7 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
 
   return (
     <>
-      {colors?.length > 0 && (
+      {colors && colors.length > 0 && (
         <div className="flex items-center space-x-3 mt-4">
           {colors.map(color => (
             <label
@@ -63,7 +64,7 @@ const ColorsBlock = ({ colors, products, activeColors }) => {
           ))}
         </div>
       )}
-      {products?.length > 0 && (
+      {activeColors && products.length > 0 && (
         <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-3 ml-2">
           {uniqueValues(products, 'color').map(color => {
             const isActiveColor = activeColors.includes(color);

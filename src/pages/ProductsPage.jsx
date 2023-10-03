@@ -56,7 +56,7 @@ const ProductsPage = () => {
         <SizesBlock products={products} activeSizes={sizes} />
         <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {filteredList.length > 0
-            ? filteredList.map(({ _id, imgURL, name, price, rating, color, category, sizes }) => (
+            ? filteredList.map(({ _id, imgURL, name, price, rating, color, category, size }) => (
                 <PopularProductCard
                   key={_id}
                   _id={_id}
@@ -67,10 +67,10 @@ const ProductsPage = () => {
                   color={color}
                   category={category}
                   currentSize={filter.size}
-                  sizes={sizes}
+                  size={size}
                 />
               ))
-            : products.map(({ _id, imgURL, name, price, rating, color, category }) => (
+            : products.map(({ _id, imgURL, name, price, rating, color, category, size }) => (
                 <PopularProductCard
                   key={_id}
                   _id={_id}
@@ -80,6 +80,7 @@ const ProductsPage = () => {
                   rating={rating}
                   color={color}
                   category={category}
+                  size={size}
                 />
               ))}
           {}

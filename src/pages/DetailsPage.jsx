@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { selectById, selectFilter, selectProducts } from '../redux/products/products-selectors';
+import { selectById, selectFilter } from '../redux/products/products-selectors';
 import { getById } from '../redux/products/products-operations';
 import BackLink from '../components/BackLink';
 import Container from '../components/Container';
@@ -28,7 +28,7 @@ import Loader from '../components/Loader';
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
+
   const filter = useSelector(selectFilter);
   const details = useSelector(selectById);
 
@@ -120,7 +120,7 @@ const DetailsPage = () => {
               <ViewsCount count={details?.viewsCount} />
             </Wrapper>
             <Wrapper>
-              <Form products={products} activeColors={details?.color} activeSizes={details?.size} />
+              <Form activeColors={details?.color} activeSizes={details?.size} />
             </Wrapper>
             <Description text={details?.description} />
 

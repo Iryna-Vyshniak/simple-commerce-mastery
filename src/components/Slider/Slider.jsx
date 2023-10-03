@@ -30,13 +30,14 @@ const Slider = ({ products, shoes, posterShoe, setPosterShoe, reviews }) => {
                 {products &&
                   products
                     .slice(currentIndex, currentIndex + visibleSlides)
-                    .map(({ _id, imgURL, name, price, rating }, index) => (
+                    .map(({ _id, imgURL, name, price, rating, size }, index) => (
                       <PopularProductCard
                         key={_id}
                         _id={_id}
                         imgURL={imgURL}
                         name={name}
                         price={price}
+                        size={size}
                         rating={rating}
                         onClick={() => goToSlide(index)}
                       />

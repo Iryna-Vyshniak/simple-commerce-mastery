@@ -11,7 +11,7 @@ const Form = ({ colors, products, activeColors, activeSizes }) => {
       </h3>
 
       <form className="flex flex-col justify-center md:justify-start gap-3">
-        {colors?.length > 0 ? (
+        {colors && colors.length > 0 ? (
           <Wrapper>
             <ColorsBlock colors={colors} />
           </Wrapper>
