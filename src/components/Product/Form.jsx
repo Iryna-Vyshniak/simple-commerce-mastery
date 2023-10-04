@@ -3,7 +3,7 @@ import Wrapper from '../Wrapper';
 import ColorsBlock from './ColorsBlock';
 import SizesBlock from './SizesBlock';
 
-const Form = ({ colors, products, activeColors, activeSizes }) => {
+const Form = ({ colors, activeColors, activeSizes }) => {
   return (
     <section aria-labelledby="options-heading">
       <h3 id="options-heading" className="sr-only">
@@ -17,12 +17,12 @@ const Form = ({ colors, products, activeColors, activeSizes }) => {
           </Wrapper>
         ) : (
           <Wrapper title="Color:">
-            <ColorsBlock products={products} activeColors={activeColors} />
+            <ColorsBlock activeColors={activeColors} />
           </Wrapper>
         )}
         {activeSizes && (
           <Wrapper title="Sizes:">
-            <SizesBlock products={products} activeSizes={activeSizes} />
+            <SizesBlock activeSizes={activeSizes} />
           </Wrapper>
         )}
       </form>

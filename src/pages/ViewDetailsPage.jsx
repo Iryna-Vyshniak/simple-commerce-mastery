@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import ButtonGroup from '../components/Button/ButtonGroup';
 import Container from '../components/Container';
@@ -8,20 +9,36 @@ import MainTitle from '../components/Title/MainTitle';
 import Price from '../components/Price';
 import ThumbImage from '../components/Image/ThumbImage';
 import Views from '../components/Views';
-import { selectProducts } from '../redux/products/products-selectors';
+import { selectFilter, selectProducts } from '../redux/products/products-selectors';
 import { addToCart, setOpenCart } from '../redux/cart/cart-slice';
 import Loader from '../components/Loader';
+import Wrapper from '../components/Wrapper';
+import SizesBlock from '../components/Product/SizesBlock';
 
 const ViewDetailsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  const viewsShoes = products.find(product => product.name === 'Nike Force ’07');
+  const viewsShoes = products?.find(product => product.name === 'Nike Force ’07');
+  const filter = useSelector(selectFilter);
+  const shoes = { ...viewsShoes, currentSize: filter.size };
 
-  const addProductToCart = () => dispatch(addToCart(viewsShoes));
+  const addProductToCart = () => {
+    if (!filter.size) {
+      toast.warn('Please, check size');
+      return;
+    }
+    dispatch(addToCart(shoes));
+    toast.success('Add shoes to cart');
+  };
 
   const handleBuyProduct = () => {
-    dispatch(addToCart(viewsShoes));
+    if (!filter.size) {
+      toast.warn('Please, check size');
+      return;
+    }
+    dispatch(addToCart(shoes));
     dispatch(setOpenCart(true));
+    toast.success('Add shoes to cart');
   };
 
   useEffect(() => {
@@ -58,10 +75,14 @@ const ViewDetailsPage = () => {
             {viewsShoes.description}
           </p>
           <Views />
+          <Wrapper title="Sizes:">
+            <SizesBlock activeSizes={viewsShoes.size} />
+          </Wrapper>
           <ButtonGroup
             id={viewsShoes._id}
             addProductToCart={addProductToCart}
             handleBuyProduct={handleBuyProduct}
+            className="mt-4"
           />
           <p className="text-sm text-slate-700 dark:text-slate-400">
             Free shipping on all continental US orders.

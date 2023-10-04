@@ -7,7 +7,7 @@ import { removeFromFavorite, setToFavorite } from '../../redux/products/products
 
 import Button from './Button';
 
-const ButtonGroup = ({ id, addProductToCart, handleBuyProduct }) => {
+const ButtonGroup = ({ id, addProductToCart, handleBuyProduct, className }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
@@ -17,7 +17,13 @@ const ButtonGroup = ({ id, addProductToCart, handleBuyProduct }) => {
     return isFavorite ? dispatch(removeFromFavorite(id)) : dispatch(setToFavorite(id));
   };
   return (
-    <div className="flex flex-wrap gap-2  mb-6 pr-2 text-sm font-medium">
+    <div
+      className={
+        className
+          ? `${className} flex flex-wrap gap-2 mb-6 pr-2 text-sm font-medium`
+          : 'flex flex-wrap gap-2 mb-6 pr-2 text-sm font-medium'
+      }
+    >
       <div className="flex-auto flex flex-wrap gap-2 ">
         <Button
           onClick={handleBuyProduct}
