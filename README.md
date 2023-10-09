@@ -26,7 +26,9 @@ color or size that match their preferences.
 You can access the live _demo_ of the application
 [here](https://simple-commerce-mastery.vercel.app/).
 
-### Features
+<div align="center">
+  <img src="https://ik.imagekit.io/irinavn2011/Red%20Black%20Modern%20Car%20Service%20Banner.png?updatedAt=1696850029568" width="1200" height="auto"/>
+</div>
 
 ### Features
 
