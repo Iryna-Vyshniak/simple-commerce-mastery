@@ -32,11 +32,10 @@ You can access the live _demo_ of the application
 
 ### Features
 
-- View a catalog of cars available for rent.
-- Filter cars by make, rental price, and mileage.
-- Add cars to your favorites.
-- View detailed information about each car.
-- Contact the rental company via phone.
+- View a catalog of shoes.
+- Filter shoes by color and sizes.
+- Add shoes to your favorites.
+- View detailed information about each pair of shoes.
 - Responsive design for various screen sizes.
 - Dark mode support.
 
