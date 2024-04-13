@@ -4,7 +4,7 @@
 
 ## Promo
 
-[Discover stylish Nike arrivals, quality comfort, and innovation for your active lifestyle](https://simple-commerce-mastery.vercel.app/)
+[Experience the fusion of style, comfort, and innovation with our Nike arrivals. Designed for your active lifestyle.](https://simple-commerce-mastery.vercel.app/)
 
 ---
 
@@ -19,11 +19,12 @@ color or size that match their preferences.
 - Features
 - Getting Started
 - Usage
-- Technologies Contributing
+- Technologies 
+- Contributing
 
 ### Demo
 
-You can access the live _demo_ of the application
+Experience our live _demo_
 [here](https://simple-commerce-mastery.vercel.app/).
 
 <div align="center">
@@ -32,22 +33,22 @@ You can access the live _demo_ of the application
 
 ### Features
 
-- View a catalog of shoes.
-- Filter shoes by color and sizes.
-- Add shoes to your favorites.
+- Browse a comprehensive catalog of shoes.
+- Filter shoes by color and size.
+- Add shoes to your favorites for easy access.
 - View detailed information about each pair of shoes.
-- Responsive design for various screen sizes.
-- Dark mode support.
+- Responsive design that adapts to various screen sizes.
+- Dark mode support for a comfortable viewing experience.
 
 ### Getting Started
 
-To get started with the project, follow these steps:
+Follow these steps to get started with the project:
 
 1. Clone this repository to your local machine:
 
 `git clone` <https://github.com/Iryna-Vyshniak/simple-commerce-mastery>
 
-2. Change directory to the project folder:
+2. Navigate to the project folder:
 
 `cd simple-commerce-mastery`
 
@@ -75,7 +76,7 @@ To get started with the project, follow these steps:
 - React Router
 - Redux Axios
 - react-toggle-dark-mode
-- Tailwind
+- Tailwind CSS
 
 ### Contributing
 
@@ -86,3 +87,5 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 3. Make your changes and commit them with descriptive commit messages.
 4. Push your changes to your fork.
 5. Open a pull request to the main repository.
+
+Your contributions are greatly appreciated! Thank you for helping improve our project.
